@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../img/logo.png";
 import './index.css';
 import { useNavigate } from 'react-router-dom';
@@ -11,8 +11,9 @@ const Header = () => {
     navigate('/login');
   }
 
+  const[open,setOpen] = useState(false)
   return (
-    <div className="container-fluid">
+    <div className="container-fluid sticky-top" style={{backgroundColor:'white'}}>
       <div className="row pt-3">
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="col-md-2 col-sx-12 d-flex justify-content-end align-items-center">
@@ -38,13 +39,26 @@ const Header = () => {
                     </a>
                   </li>
                   <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={()=>setOpen(p=>!p)}>
                       Mua ngay
                     </a>
-                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a className="dropdown-item" href="#">Action</a></li>
-                      <li><a className="dropdown-item" href="#">Another action</a></li>
-                    </ul>
+                    {
+                      open && (
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style={{
+                          position: "absolute",
+                          top: "100%",
+                          left: 0,
+                          width: "100%",
+                          
+                          display: "unset",
+                           background: ""
+                        }}>
+                          <li><a className="dropdown-item" href="#">Action</a></li>
+                          <li><a className="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                      )
+                    }
+                    
                   </li>
                 </ul>
               </div>
