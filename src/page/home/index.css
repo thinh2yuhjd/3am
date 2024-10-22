@@ -1,10 +1,83 @@
 .last-updated {
-    opacity: 0.8; 
-  }
-  .container {
-    max-width: 800px; /* Giới hạn chiều rộng */
-    margin: 0 auto; /* Căn giữa */
-    padding: 20px; /* Thêm khoảng cách */
-    font-family: Arial, sans-serif; /* Chọn phông chữ */
-  }
-  
+  opacity: 0.8; 
+}
+.chu{
+text-align: justify;
+}
+
+.image-gallery {
+  margin: 20px 0; /* Khoảng cách giữa hình ảnh và nút */
+}
+
+.responsive-image {
+  max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng màn hình */
+  height: auto; /* Giữ tỷ lệ hình ảnh */
+  width: 60%;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  background-color: #666666; /* Màu nền */
+  color: white; /* Màu chữ */
+  padding: 10px 15px; /* Khoảng cách bên trong */
+  border: none; /* Không viền */
+  border-radius: 5px; /* Bo góc */
+  cursor: pointer; /* Con trỏ khi di chuột */
+  font-size: 16px; /* Kích thước chữ */
+  transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+}
+
+.download-button:hover {
+  background-color: #555555; /* Màu nền khi hover */
+}
+
+.icon {
+  width: 20px; /* Kích thước biểu tượng */
+  height: 20px; /* Kích thước biểu tượng */
+  background-image: url('../../img/logowwindowns.png'); /* Thay thế bằng tên tệp hình ảnh của bạn */
+  background-size: contain; /* Kích thước biểu tượng */
+  background-repeat: no-repeat; /* Không lặp lại biểu tượng */
+  margin-right: 8px; /* Khoảng cách giữa biểu tượng và chữ */
+  display: inline-block; /* Đảm bảo biểu tượng hiển thị đúng */
+}
+
+.test-site-container {
+  list-style: none; /* Bỏ dấu chấm trước mỗi mục */
+  padding: 0; /* Bỏ khoảng cách bên trong */
+  display: flex; /* Hiển thị các mục trên cùng một dòng */
+  animation: marquee 10s linear infinite; /* Thêm hiệu ứng chuyển động */
+}
+
+.test-site-container {
+  list-style: none; /* Bỏ dấu chấm trước mỗi mục */
+  padding: 0; /* Bỏ khoảng cách bên trong */
+  display: flex; /* Hiển thị các mục trên cùng một dòng */
+  animation: marquee 15s linear infinite; /* Thêm hiệu ứng chuyển động */
+}
+
+.test-site-container a {
+  color: black; /* Đặt màu chữ thành đen */
+  text-decoration: none; /* Bỏ gạch chân */
+}
+
+.test-site-container li {
+  margin: 0 20px; /* Khoảng cách giữa các mục */
+}
+/* Hiệu ứng chuyển động từ phải sang trái */
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+#section_1700118574 {
+  padding-top: 1px; /* Điều chỉnh khoảng cách trên */
+  padding-bottom: 20px; /* Điều chỉnh khoảng cách dưới */
+  max-height: 200px; /* Giới hạn chiều cao tối đa */
+
+  background-color: rgb(248, 249, 255); /* Màu nền */
+}
+.marquee {
+  height: 55px; /* Chiều cao của marquee */
+ 
+}
