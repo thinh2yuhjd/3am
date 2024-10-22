@@ -1,0 +1,10 @@
+.last-updated {
+    opacity: 0.8; 
+  }
+  .container {
+    max-width: 800px; /* Giới hạn chiều rộng */
+    margin: 0 auto; /* Căn giữa */
+    padding: 20px; /* Thêm khoảng cách */
+    font-family: Arial, sans-serif; /* Chọn phông chữ */
+  }
+  
