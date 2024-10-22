@@ -1,14 +1,21 @@
 import React from "react";
 import logo from "../../img/logo.png";
 import './index.css';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Header = () => {
+  const navigate = useNavigate();
+  const onhangdleLogin = () => {
+    navigate('/login');
+  }
+
   return (
     <div className="container-fluid">
       <div className="row pt-3">
         <nav className="navbar navbar-expand-lg navbar-light">
-          <div className="col-md-2 col-sx-12 d-flex justify-content-end align-items-center"> 
-            {/* Logo nằm sát phải */}
+          <div className="col-md-2 col-sx-12 d-flex justify-content-end align-items-center">
             <img src={logo} alt="Logo" className="logo" />
           </div>
           <div className="col-md-10 col-sx-12 ms-auto d-flex justify-content-between">
@@ -39,10 +46,9 @@ const Header = () => {
                       <li><a className="dropdown-item" href="#">Another action</a></li>
                     </ul>
                   </li>
-                </ul>    
+                </ul>
               </div>
               <div className="col-md-4 d-flex justify-content-start">
-                {/* Form Search căn sát trái */}
                 <form className="d-flex align-items-center w-100 justify-content-start">
                   <input
                     className="form-control me-2"
@@ -54,6 +60,7 @@ const Header = () => {
                     Search
                   </button>
                 </form>
+                <button onClick={onhangdleLogin}>Đăng nhập</button>
               </div>
             </div>
           </div>
