@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../img/logo.png";
 import './index.css';
-import { useNavigate } from 'react-router-dom';
-
-
+import { useNavigate, Link } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -34,9 +32,9 @@ const Header = () => {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">
+                    <Link to="/doc" className="nav-link active" aria-current="page">
                       Tài liệu
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={()=>setOpen(p=>!p)}>
