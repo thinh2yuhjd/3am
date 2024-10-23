@@ -1,7 +1,16 @@
 import React from "react";
+import iconA from '../../img/icon/trustworthy-status.svg'
+import iconB from '../../img/icon/mcil.png'
+import iconC from '../../img/icon/browserleaks.png'
+import iconD from '../../img/icon/creepjs.png'
+import iconE from '../../img/icon/f.vision.jpg'
+import iconF from '../../img/icon/AppIcon-WhiteSymbol.png'
+import iconH from '../../img/icon/scan.jpg'
 import "./index.css";
+
 import ProfileImage from "../../img/Profile.jpg";
 import why3am from "../../img/why3am.png";
+import Video from "./video";
 const Home = () => {
   return (
     <div className="mt-5">
@@ -38,7 +47,8 @@ const Home = () => {
                 <div className="row align-center">
                   <div className="col overflow-hidden small-12 large-12 text-center">
                     <h2 style={{ marginBottom: "20px" }}>
-                    Được hơn 20.000 người dùng tin tưởng. Đã vượt qua tất cả các bài kiểm tra
+                      Được hơn 20.000 người dùng tin tưởng. Đã vượt qua tất cả
+                      các bài kiểm tra
                     </h2>
                     <div
                       className="marquee"
@@ -46,15 +56,18 @@ const Home = () => {
                     >
                       <ul className="test-site-container">
                         <li>
+
+                          <img src={iconA} alt="" width='30px' className="pe-2"/>
                           <a
                             href="https://iphey.com/"
                             target="_blank"
                             rel="noopener"
                           >
-                            iphey.com
+                             iphey.com
                           </a>
                         </li>
                         <li>
+                        <img src={iconB} alt="" width='35px' className="pe-2"/>
                           <a
                             href="https://pixelscan.net/"
                             target="_blank"
@@ -64,6 +77,7 @@ const Home = () => {
                           </a>
                         </li>
                         <li>
+                        <img src={iconC} alt="" width='35px' className="pe-2"/>
                           <a
                             href="https://browserleaks.com/"
                             target="_blank"
@@ -73,6 +87,7 @@ const Home = () => {
                           </a>
                         </li>
                         <li>
+                        <img src={iconD} alt="" width='35px' className="pe-2"/>
                           <a
                             href="https://abrahamjuliot.github.io/creepjs/"
                             target="_blank"
@@ -82,6 +97,7 @@ const Home = () => {
                           </a>
                         </li>
                         <li>
+                        <img src={iconE} alt="" width='35px' className="pe-2"/>
                           <a
                             href="http://f.vision/"
                             target="_blank"
@@ -91,6 +107,7 @@ const Home = () => {
                           </a>
                         </li>
                         <li>
+                        <img src={iconF} alt="" width='35px' className="pe-2"/>
                           <a
                             href="https://fingerprint.com/products/bot-detection/"
                             target="_blank"
@@ -100,6 +117,7 @@ const Home = () => {
                           </a>
                         </li>
                         <li>
+                        <img src={iconH} alt="" width='35px' className="pe-2"/>
                           <a
                             href="https://www.browserscan.net/"
                             target="_blank"
@@ -145,8 +163,123 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="mt-5">
-            <p>Bảng giá</p>
+      </div>
+      <div className="container mt-5 chu ">
+        <h2>Bảng giá</h2>
+        <div className="mt-3 last-updated">
+          <p>
+            Lưu ý: tài khoản chính chủ có thể reset hoặc đổi License khi muốn
+            đổi PC sử dụng / PM lên page facebook để đăng kí dùng thử 7 ngày
+          </p>
+          <div className="container row mt-5">
+            {/* Gói Solo */}
+            <div className="col-md-4 col-sm-12">
+              <div className="col-inner">
+                <div className="price-card ">
+                  <h3 className="uppercase">Basic Solo</h3>
+                  <p>
+                    <span className="price">3.000.000 đ</span>
+                  </p>
+                  <ul>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      <b>01 máy sử dụng vĩnh viễn</b>
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      Không giới hạn profile
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      Hỗ trợ trọn đời
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      Automation API
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      No code automation
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Gói Team 5PC */}
+            <div className="col-md-4 col-sm-12">
+              <div className="col-inner">
+                <div className="price-card">
+                  <h3 className="uppercase">Basic 5</h3>
+                  <p>
+                    <span className="price">6.000.000 đ</span>
+                  </p>
+                  <ul>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      <b>05 máy sử dụng vĩnh viễn</b>
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      Không giới hạn profile
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      Hỗ trợ duy nhất chủ license
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      Automation API
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      No code automation
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Gói Team 10PC */}
+            <div className="col-md-4 col-sm-12">
+              <div className="col-inner">
+                <div className="price-card">
+                  <h3 className="uppercase">Basic 10</h3>
+                  <p>
+                    <span className="price">10.000.000 đ</span>
+                  </p>
+                  <ul>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      <b>10 máy sử dụng vĩnh viễn</b>
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      Không giới hạn profile
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      Hỗ trợ duy nhất chủ license
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      Automation API
+                    </li>
+                    <li className="pb-2">
+                      <i className="fa-solid fa-check"> </i>
+                      No code automation
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container chu mt-5">
+        <h2>Hướng dẫn sử dụng</h2>
+        <div className="">
+          <Video />
         </div>
       </div>
     </div>

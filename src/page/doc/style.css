@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("./google-sans/ProductSans-Regular.ttf") format("ttf");
+}
+* {
+  font-family: "MyCustomFont", sans-serif;
+}
+.sidebar {
+  background: #f8f9fa;
+  padding: 15px;
+  border-right: 1px solid #dee2e6;
+}
+.toggle-arrow {
+  cursor: pointer;
+  margin-left: 5px;
+}
+.content {
+  padding: 15px;
+}
+.hoverB:hover {
+  background-color: #e6edfb;
+}
+.hoverB {
+  padding: 5px 10px;
+  border-radius: 7px;
+  transition: all 0.2s ease-in-out;
+}
+.toggle-arrow {
+  font-size: 14px; 
+}
+.sidebar a {
+  text-decoration: none; 
+  color: black; 
+}
+.sidebar a:hover {
+  color: #24a1de; 
+}
+.sidebar-item.active {
+  color: #24a1de; 
+}
+
+.dropdown-menu {
+  margin-top: 8px;
+  display: none; 
+  position: absolute;
+  z-index: 1000;
+  width: 220px; 
+  border-color: #24a1de;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+  max-height: 500px; 
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis;
+}
+.last-updated {
+  opacity: 0.6; 
+}
+.search-container {
+  max-width: 600px; 
+  margin-left: auto; 
+  margin-right: 0; 
+  position: relative;
+}
+#inputSearch {
+  border-radius: 7px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  border: 2px solid transparent; 
+}
+#inputSearch:focus {
+  border-color: #24a1de;
+  outline: none; 
+}
+.logo {
+      cursor: pointer; 
+  }

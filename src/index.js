@@ -9,6 +9,7 @@ import { Login } from './page/login/login';
 import { Register } from './page/register/register';
 import { LicenseManagement } from './page/license/licensemanagement';
 
+import Doc from './page/doc/doc';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -17,11 +18,12 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
-
         </Route>
         <Route path="/license" element={<LicenseManagement />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/doc" element={<Doc />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
