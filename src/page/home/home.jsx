@@ -38,8 +38,7 @@ const Home = () => {
                 <div className="row align-center">
                   <div className="col overflow-hidden small-12 large-12 text-center">
                     <h2 style={{ marginBottom: "20px" }}>
-                      Được tin tưởng bởi 20.000+ người dùng. Vượt qua mọi bài
-                      kiểm thử
+                    Được hơn 20.000 người dùng tin tưởng. Đã vượt qua tất cả các bài kiểm tra
                     </h2>
                     <div
                       className="marquee"
@@ -117,7 +116,6 @@ const Home = () => {
             </section>
           </div>
         </div>
-
         <div className="container text-center mt-5">
           <div className="row">
             <div className="col-md-6 ">
@@ -146,6 +144,9 @@ const Home = () => {
               </p>
             </div>
           </div>
+        </div>
+        <div className="mt-5">
+            <p>Bảng giá</p>
         </div>
       </div>
     </div>
