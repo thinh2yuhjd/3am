@@ -21,6 +21,7 @@ export function Login() {
     };
 
     return (
+        
         <div className='container-fluid vh-100'>
             <div className="row h-100">
                 <div className="col-left col-md-6 d-none d-md-flex justify-content-center align-items-center pe-0">
