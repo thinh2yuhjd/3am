@@ -1,0 +1,30 @@
+/* .sidebar {
+    height: 100vh;
+    transition: width 0.3s;
+    background-color: #343a40; 
+}
+
+
+.sidebar .nav-link {
+    white-space: nowrap;
+    color: white; 
+}
+
+.sidebar .nav-link.active {
+    background-color: #495057;
+}
+.logo{
+    padding-left: 10px;
+} */
+
+
+.sub_siderbar.collapsed {
+    width: 100px;
+}
+
+.sub_siderbar.expanded {
+    width: 250px;
+}
+.logo{
+    width: 40px;
+}

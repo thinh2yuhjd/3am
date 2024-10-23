@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './page/home/home';
 import { Login } from './page/login/login';
+import { Register } from './page/register/register';
+import { LicenseManagement } from './page/license/licensemanagement';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,8 +17,11 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
+
         </Route>
-          <Route path="/login" element={<Login />} />
+        <Route path="/license" element={<LicenseManagement />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
