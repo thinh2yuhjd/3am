@@ -4,24 +4,24 @@ import logo from '../../img/logo.png';
 import iconUser from '../../img/icon/user.png';
 import iconPass from '../../img/icon/padlock.png';
 import './index.css';
-import { GoogleLogin } from '@react-oauth/google';
+// import { GoogleLogin } from '@react-oauth/google';
 
-const clientId = "402693424713-vmjdp7vrg54377818e91sb58hndm09em.apps.googleusercontent.com";
+// const clientId = "402693424713-vmjdp7vrg54377818e91sb58hndm09em.apps.googleusercontent.com";
 
 export function Login() {
-    const handleGoogleLoginSuccess = (credentialResponse) => {
-        console.log("Login Success: ", credentialResponse);
-        // Xử lý logic đăng nhập thành công ở đây
-        // Ví dụ: Gửi thông tin đăng nhập đến server hoặc lưu token vào local storage
-    };
+    // const handleGoogleLoginSuccess = (credentialResponse) => {
+    //     console.log("Login Success: ", credentialResponse);
+    //     // Xử lý logic đăng nhập thành công ở đây
+    //     // Ví dụ: Gửi thông tin đăng nhập đến server hoặc lưu token vào local storage
+    // };
 
-    const handleGoogleLoginFailure = (error) => {
-        console.error("Login Failed: ", error);
-        // Xử lý logic đăng nhập thất bại ở đây
-    };
+    // const handleGoogleLoginFailure = (error) => {
+    //     console.error("Login Failed: ", error);
+    //     // Xử lý logic đăng nhập thất bại ở đây
+    // };
 
     return (
-        
+
         <div className='container-fluid vh-100'>
             <div className="row h-100">
                 <div className="col-left col-md-6 d-none d-md-flex justify-content-center align-items-center pe-0">
@@ -71,7 +71,7 @@ export function Login() {
                         </form>
 
                         {/* Thêm nút đăng nhập bằng Google */}
-                        <div className="mt-3">
+                        {/* <div className="mt-3">
                             <GoogleLogin
                                 onSuccess={handleGoogleLoginSuccess}
                                 onError={handleGoogleLoginFailure}
@@ -79,7 +79,7 @@ export function Login() {
                                 className="btn btn-light w-100"
                                 // Thêm các tùy chọn khác nếu cần thiết
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
