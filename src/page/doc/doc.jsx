@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css'; // Đảm bảo style.css có trong cùng thư mục hoặc đường dẫn đúng
 import data from './data'; // Nhập đối tượng dữ liệu
 import './script'; // Nếu bạn có các hàm cần thiết trong script.js
-
+import logo from '../../img/logo.png';
 const Doc = () => {
   // Kiểm tra xem data.fingerprint và data.fingerprint.children có được định nghĩa không
   const sidebarItems = data.fingerprint?.children ? data.fingerprint.children.map(item => item.title) : [];
@@ -50,9 +50,9 @@ const Doc = () => {
         <div className="row">
           <nav className="navbar navbar-light bg-light">
             <div className="container-fluid">
-              <a href="../trangchu/home.html" onClick={() => window.location.reload()}>
+              <a href="" onClick={() => window.location.reload()}>
                 <b>
-                  <img src="../trangdoc/img/logo.png" alt="Logo" className="logo" />
+                  <img src={logo} alt="Logo" className="logo" />
                 </b>
               </a>
               <div className="search-container position-relative">
