@@ -1,8 +1,12 @@
 .btn-outline-custom {
-  color: #24a1de; /* Màu chữ */
+  color: #ecf0f1 !important; /* Màu chữ */
   border-color: #24a1de; /* Màu viền */
+  background-color: #24a1de !important;
 }
 
+.color_nav {
+  color: #24a1de !important;
+}
 .btn-outline-custom:hover {
   background-color: #24a1de; /* Màu nền khi hover */
   color: white; /* Màu chữ khi hover */
@@ -10,9 +14,9 @@
 
 @media (max-width: 849px) {
   .button-full-width {
-      display: block;
-      width: 100%; /* Chiếm toàn bộ chiều rộng */
-      margin: 10px 0; /* Thêm một chút khoảng cách phía trên và dưới */
+    display: block;
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin: 10px 0; /* Thêm một chút khoảng cách phía trên và dưới */
   }
 }
 
@@ -35,8 +39,3 @@
   max-width: 200px; /* Giới hạn chiều rộng của ô input */
 }
 
-.col-md-4 {
-  display: flex;
-  justify-content: flex-end; /* Đẩy form về phía phải */
-  align-items: center; /* Căn giữa theo chiều dọc */
-}

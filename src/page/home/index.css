@@ -18,19 +18,16 @@ text-align: justify;
 .download-button {
   display: flex;
   align-items: center;
-  background-color: #666666; /* Màu nền */
-  color: white; /* Màu chữ */
+  background-color: white; /* Màu nền */
+  color:  #24A1DE; /* Màu chữ */
   padding: 10px 15px; /* Khoảng cách bên trong */
-  border: none; /* Không viền */
+  border-color: #24A1DE;
   border-radius: 5px; /* Bo góc */
   cursor: pointer; /* Con trỏ khi di chuột */
   font-size: 16px; /* Kích thước chữ */
   transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
 }
 
-.download-button:hover {
-  background-color: #555555; /* Màu nền khi hover */
-}
 
 .icon {
   width: 20px; /* Kích thước biểu tượng */
