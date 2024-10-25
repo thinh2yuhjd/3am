@@ -63,13 +63,16 @@ export function Login() {
                                 </div>
                                 <a href="#" className="text-decoration-none">Quên mật khẩu?</a>
                             </div>
-                            <button type="submit" className="btn btn-primary w-100">Đăng nhập</button>
+                            <Link to="/license">
+                                <button type="submit" className="btn btn-primary w-100">Đăng nhập</button>
+                            </Link>
+
                             <p className="mt-3">
                                 Bạn chưa có tài khoản?
                                 <Link to="/register">
-                                <span className='ps-1'>
-                                Đăng ký
-                                </span>
+                                    <span className='ps-1'>
+                                        Đăng ký
+                                    </span>
                                 </Link>
                             </p>
                         </form>

@@ -10,6 +10,10 @@ import { Register } from './page/register/register';
 import { LicenseManagement } from './page/license/licensemanagement';
 
 import Doc from './page/doc/doc';
+import { DashboardPage } from './page/license/content/dashboard/dashboard';
+import { BuyLicensePage } from './page/license/content/buylicense/buylicense';
+import { LicenseManagementPage } from './page/license/content/licenseManagement/licensemanagement';
+import { SupportPage } from './page/license/content/support/support';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -19,10 +23,17 @@ root.render(
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
         </Route>
-        <Route path="/license" element={<LicenseManagement />} />
+
+        <Route path="/license" element={<LicenseManagement />}>
+          <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="buylicense" element={<BuyLicensePage />} />
+          <Route path="management" element={<LicenseManagementPage />} />
+          <Route path="support" element={<SupportPage />} />
+        </Route>
+
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/doc" element={<Doc />} />
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,29 @@
+.table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+    border: none; 
+    border: 1px solid rgba(218, 218, 218, 0.5); 
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: none;
+    padding: 1rem;
+    vertical-align: middle;
+    color: #4b5563;
+}
+
+.table-light {
+    background-color: #eeeeee;
+    font-weight: 500;
+}
+
+.table-bordered th {
+    border-top: none;
+}
+
+.table-bordered {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: none;
+}
