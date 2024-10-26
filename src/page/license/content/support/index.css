@@ -1,0 +1,16 @@
+.center-box {
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ebebeb;
+}
+.box-color{
+    max-width: 1000px;
+    background: #d7ebff;
+}
+ul {
+    padding: 0; 
+    margin: 0;  
+  }
