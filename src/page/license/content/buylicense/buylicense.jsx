@@ -1,39 +1,8 @@
 import React, { useState } from 'react';
 import './index.css';
-import { dataLicense } from './data';
-
-
-import iconUp from '../../../../img/icon/arrowhead-up.png';
-import iconDown from '../../../../img/icon/arrowhead-down.png';
-
-function CustomSelect({ options, onChange, value }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleDropdown = () => setIsOpen(!isOpen);
-  const handleOptionClick = (option) => {
-    onChange(option);
-    setIsOpen(false);
-  };
-
-  return (
-    <div className="custom-dropdown">
-      <div onClick={toggleDropdown} className="custom-dropdown-selected d-flex justify-content-between">
-        {value?.name || 'Chọn gói phần mềm'}
-        <div>
-          <img src={isOpen ? iconDown : iconUp} alt="Toggle Dropdown" />
-        </div>
-      </div>
-      {isOpen && (
-        <div className="custom-dropdown-options">
-          {options.map((option, index) => (
-            <div key={index} onClick={() => handleOptionClick(option)} className="custom-dropdown-option">
-              {option.name} (vĩnh viễn)
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
+import { dataLicense } from './data'; // Adjust the import path
+// import { dataAddress } from '../data/dataAddress'; // Adjust the import path
+import CustomSelect from './customSelect';
 
 export function BuyLicensePage() {
   const [selectedOption, setSelectedOption] = useState(dataLicense[0]);
@@ -65,8 +34,8 @@ export function BuyLicensePage() {
             />
           </div>
           <div className="col-md-6">
-            <span >Module</span>
-            <div className=" mt-2 rounded border" style={{ backgroundColor: '#f7f7f7', padding: '10px' }}>
+            <span>Module</span>
+            <div className="mt-2 rounded border" style={{ backgroundColor: '#f7f7f7', padding: '10px' }}>
               <input type="checkbox" id="module" className="form-check-input" onChange={handleModuleChange} />
               <label className="form-check-label ms-2" htmlFor="module">Private server</label>
             </div>
@@ -95,34 +64,18 @@ export function BuyLicensePage() {
         </div>
         <div className="row mt-4">
           <div className="col-md-4">
-            <label className='mb-2' htmlFor="">Tỉnh / Thành phố <span style={{ color: 'red' }}>*</span></label>
-            <CustomSelect
-              options={dataLicense}
-              value={selectedOption}
-              onChange={handleLicenseChange}
-            />
+            <label className='mb-2' htmlFor="city">Tỉnh / Thành phố <span style={{ color: 'red' }}>*</span></label>
+
           </div>
           <div className="col-md-4">
-            <label className='mb-2' htmlFor="">Huyện <span style={{ color: 'red' }}>*</span></label>
+            <label className='mb-2' htmlFor="district">Huyện <span style={{ color: 'red' }}>*</span></label>
 
-            <CustomSelect
-              options={dataLicense}
-              value={selectedOption}
-              onChange={handleLicenseChange}
-            />
           </div>
           <div className="col-md-4">
-            <label className='mb-2' htmlFor="">Xã / phường <span style={{ color: 'red' }}>*</span></label>
+            <label className='mb-2' htmlFor="ward">Xã / phường <span style={{ color: 'red' }}>*</span></label>
 
-            <CustomSelect
-              options={dataLicense}
-              value={selectedOption}
-              onChange={handleLicenseChange}
-            />
           </div>
         </div>
-
-
       </div>
     </div>
   );
