@@ -1,105 +1,123 @@
-import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './style.css'; // Đảm bảo style.css có trong cùng thư mục hoặc đường dẫn đúng
-import data from './data'; // Nhập đối tượng dữ liệu
-import './script'; // Nếu bạn có các hàm cần thiết trong script.js
-import logo from '../../img/logo.png';
+import React, { useState } from "react";
+import { data } from "./data";
+import logo from "../../img/logo.png"
+import './index.css'
 const Doc = () => {
-  // Kiểm tra xem data.fingerprint và data.fingerprint.children có được định nghĩa không
-  const sidebarItems = data.fingerprint?.children ? data.fingerprint.children.map(item => item.title) : [];
+  // Trạng thái để theo dõi việc hiển thị của các danh sách con
+  const [openSections, setOpenSections] = useState({
+    fingerprint: false,
+    api: false,
+    auto: false,
+    loi: false,
+  });
+
+  // Trạng thái để theo dõi mô tả của mục lớn đã chọn
+  const [selectedDescription, setSelectedDescription] = useState("");
   
-  const [searchTerm, setSearchTerm] = useState(''); // Từ khóa tìm kiếm
-  const [activeItem, setActiveItem] = useState(null); // Mục đang hoạt động
-  const [filteredItems, setFilteredItems] = useState([]); // Mảng để chứa các mục được lọc
-  const [showDropdown, setShowDropdown] = useState(false); // Biến để kiểm soát hiển thị dropdown
+  // Trạng thái để theo dõi mục con đã chọn
+  const [selectedChild, setSelectedChild] = useState(null);
 
-  useEffect(() => {
-    if (searchTerm) {
-      // Lọc các mục sidebar dựa trên từ khóa tìm kiếm
-      const results = sidebarItems.filter(item => 
-        item.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredItems(results);
-      setShowDropdown(results.length > 0); // Hiển thị dropdown nếu có kết quả
-    } else {
-      setFilteredItems([]);
-      setShowDropdown(false); // Ẩn dropdown nếu không có từ khóa
-    }
-  }, [searchTerm]);
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
 
-  const handleSearchInput = (event) => {
-    setSearchTerm(event.target.value); // Cập nhật từ khóa tìm kiếm
+    // Cập nhật mô tả tương ứng khi nhấp vào mục lớn
+    setSelectedDescription(data[section].description);
+    setSelectedChild(null); // Reset mục con đã chọn
   };
 
-  const activateItem = (item) => {
-    setActiveItem(item); // Cập nhật mục đang hoạt động
+  const handleChildClick = (event, child) => {
+    event.stopPropagation(); // Ngăn chặn sự kiện nhấp chuột lan truyền lên mục cha
+    setSelectedChild(child);
+    
+    setSelectedDescription(""); // Ẩn mô tả của mục cha
   };
-
-  const handleDropdownClick = (item) => {
-    activateItem(item);
-    setSearchTerm(''); // Xóa từ khóa tìm kiếm sau khi chọn mục
-    setShowDropdown(false); // Ẩn dropdown
-  };
-
-  // Lấy mô tả của mục đang hoạt động từ data
-  const activeItemDescription = data.fingerprint?.children.find(item => item.title === activeItem)?.description || 'Chi tiết nội dung sẽ hiển thị ở đây.';
 
   return (
-    <div className="main">
+    <div>
+       <div className="container">
+        <nav className="navbar navbar-light">
+          <div className="container-fluid">
+          <img src={logo} alt="logo" />
+            <form className="d-flex">
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+               
+              />
+            </form>
+          </div>
+        </nav>
+      </div>
+      <div className="mb-5" style={{ height: "1px", width: "100%", backgroundColor: "gray" }}></div>
       <div className="container">
         <div className="row">
-          <nav className="navbar navbar-light bg-light">
-            <div className="container-fluid">
-              <a href="" onClick={() => window.location.reload()}>
-                <b>
-                  <img src={logo} alt="Logo" className="logo" />
-                </b>
-              </a>
-              <div className="search-container position-relative">
-                <input
-                  id="inputSearch"
-                  type="text"
-                  className="form-control"
-                  placeholder="Tìm kiếm"
-                  value={searchTerm}
-                  onChange={handleSearchInput}
-                />
-                {showDropdown && (
-                  <div id="dropdownResults" className="dropdown-menu show">
-                    {filteredItems.map((item, index) => (
-                      <div
-                        key={index}
-                        className="dropdown-item"
-                        onClick={() => handleDropdownClick(item)}
-                      >
-                        {item}
-                      </div>
+          <div className="col-md-3">
+            <ul>
+              <li onClick={() => toggleSection("fingerprint")}>
+                {data.fingerprint.title}
+                {openSections.fingerprint && (
+                  <ul>
+                    {data.fingerprint.children.map((item, index) => (
+                      <li key={index} onClick={(event) => handleChildClick(event, item)}>
+                        {item.title}
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 )}
-              </div>
-            </div>
-          </nav>
-        </div>
-        <div className="row border">
-          <div className="col-md-3 sidebar">
-            <h4 className="sidebar-title">Browser Fingerprint</h4>
-            <ul className="list-unstyled ps-4">
-              {sidebarItems.map((item, index) => (
-                <li
-                  key={index}
-                  className="sidebar-item hoverB last-updated"
-                  onClick={() => activateItem(item)}
-                >
-                  <a>{item}</a>
-                </li>
-              ))}
+              </li>
+              <li onClick={() => toggleSection("api")}>
+                {data.api.title}
+                {openSections.api && (
+                  <ul>
+                    {data.api.children.map((item, index) => (
+                      <li key={index} onClick={(event) => handleChildClick(event, item)}>
+                        {item.title}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+              <li onClick={() => toggleSection("auto")}>
+                {data.auto.title}
+                {openSections.auto && (
+                  <ul>
+                    {data.auto.children.map((item, index) => (
+                      <li key={index} onClick={(event) => handleChildClick(event, item)}>
+                        {item.title}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+              <li onClick={() => toggleSection("loi")}>
+                {data.loi.title}
+                {openSections.loi && (
+                  <ul>
+                    {data.loi.children.map((item, index) => (
+                      <li key={index} onClick={(event) => handleChildClick(event, item)}>
+                        {item.title}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
             </ul>
           </div>
-          <div id="content" className="col-md-9 content">
-            <h1 id="content-title">{activeItem || 'Chọn một mục để xem chi tiết'}</h1>
-            <p id="content-description" dangerouslySetInnerHTML={{ __html: activeItemDescription }}></p>
-            <div className="last-updated">Last updated 11 months ago</div>
+          <div className="col-md-9">
+            {selectedDescription && !selectedChild && (
+              <p>{selectedDescription}</p>
+            )}
+            {selectedChild && (
+              <div>
+                <h4>{selectedChild.title}</h4>
+                <p>{selectedChild.description}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

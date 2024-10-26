@@ -28,7 +28,7 @@ const Header = () => {
                   </li>
                   <li className="nav-item">
                     <a className="nav-link active color_nav" aria-current="page" href="#">
-                      Sản phẩm
+                      Mua bán tài nguyên
                     </a>
                   </li>
                   <li className="nav-item">
@@ -51,8 +51,8 @@ const Header = () => {
                           display: "unset",
                            background: ""
                         }}>
-                          <li><a className="dropdown-item color_nav" href="#">Action</a></li>
-                          <li><a className="dropdown-item color_nav" href="#">Another action</a></li>
+                          <li><a className="dropdown-item color_nav" href="#">Mua qua facebook</a></li>
+                          <li><a className="dropdown-item color_nav" href="#">Mua online</a></li>
                         </ul>
                       )
                     }
