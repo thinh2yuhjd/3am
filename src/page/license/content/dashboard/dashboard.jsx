@@ -3,7 +3,7 @@ import './index.css';
 import { data } from './data';
 
 export function DashboardPage() {
-  // Kiểm tra nếu tất cả các phần content đều trống
+
   const hasContent = data.some(item => item.content); // Kiểm tra xem có ít nhất một phần content không rỗng
 
   return (
@@ -11,7 +11,7 @@ export function DashboardPage() {
       <h3 style={{ fontWeight: '600' }}>Bảng điều khiển</h3>
       <div className="table-responsive mt-4">
         <table className="table table-bordered text-center">
-          <thead className="table-white">
+          <thead style={{backgroundColor:'#eeeeee'}}>
             <tr>
               {data.map((item, index) => (
                 <th key={index} scope="col" className="text-start">{item.title}</th>
