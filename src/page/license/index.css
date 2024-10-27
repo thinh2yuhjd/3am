@@ -1,78 +1,86 @@
+
+.sidebar_main.collapsed {
+  width: 100px;
+}
+.sidebar_main.expanded {
+  width: 270px;
+}
 .sub_siderbar.collapsed {
     width: 100px;
-}
-
+  }
 .sub_siderbar.expanded {
-    width: 270px;
+  width: 270px;
 }
-
-.sub_siderbar {
+.sidebar_main{
     transition: width 0.3s ease;
-    overflow: hidden;
-    position: relative;
+}
+.sub_siderbar {
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: relative;
 }
 
 .sub_content {
-    background-color: #f5f6fa;
+  background-color: #f5f6fa;
 }
 
 .logo {
-    width: 40px;
+  width: 40px;
 }
 
 .sidebar_header,
 .content_header {
-    height: 64px;
+  height: 64px;
 }
 
 .button_menubar {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .custom-li {
-    height: 50px;
-    line-height: 50px;
-    position: relative;
-    transition: all ease-in-out 0.2s;
-    padding-left: 30px;
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  transition: all ease-in-out 0.2s;
+  padding-left: 30px;
 }
 
 .custom-li.active {
-    background-color: rgb(32, 85, 153);
-    color: #f5f6fa;
-    transition: all ease-in-out 0s;
+  background-color: rgb(32, 85, 153);
+  color: #f5f6fa;
+  transition: all ease-in-out 0s;
 }
 
 .custom-ul {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .custom-li span {
-    transition: opacity 0.1s ease;
-    position: absolute;
-    white-space: nowrap;
+  transition: opacity 0.1s ease;
+  position: absolute;
+  white-space: nowrap;
 }
 
 .sub_siderbar.collapsed .custom-li span {
-    opacity: 0;
+  opacity: 0;
 }
 
 .sub_siderbar.expanded .custom-li span {
-    opacity: 1;
+  opacity: 1;
 }
 
 .custom-li:hover {
-    background-color: rgba(162, 202, 255, 0.712);
-    cursor: pointer;
-    color: #0D6EFD;
+  background-color: rgba(162, 202, 255, 0.712);
+  cursor: pointer;
+  color: #0d6efd;
 }
 
-@media (max-width:425px) {
-    .sub_siderbar.collapsed {
-        width: 0px;
-    }
+@media (max-width: 425px) {
+  .sub_siderbar.collapsed {
+    width: 0px;
+  }
 
-    .sub_siderbar.expanded {
-        width: 230px;
-    }
+  .sub_siderbar.expanded {
+    width: 230px;
+  }
 }

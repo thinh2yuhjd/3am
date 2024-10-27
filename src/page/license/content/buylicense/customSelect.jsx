@@ -12,7 +12,7 @@ function CustomSelect({ options, onChange, value }) {
 
   return (
     <div className="custom-dropdown">
-      <div onClick={toggleDropdown} className="custom-dropdown-selected d-flex justify-content-between">
+      <div onClick={toggleDropdown} className="custom-dropdown-selected border d-flex justify-content-between">
         {value?.name || 'Chọn gói phần mềm'}
         <div>
           <img src={isOpen ? iconDown : iconUp} alt="Toggle Dropdown" />

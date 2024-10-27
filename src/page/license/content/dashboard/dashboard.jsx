@@ -11,7 +11,7 @@ export function DashboardPage() {
       <h3 style={{ fontWeight: '600' }}>Bảng điều khiển</h3>
       <div className="table-responsive mt-4">
         <table className="table table-bordered text-center">
-          <thead className="table-light">
+          <thead className="table-white">
             <tr>
               {data.map((item, index) => (
                 <th key={index} scope="col" className="text-start">{item.title}</th>
