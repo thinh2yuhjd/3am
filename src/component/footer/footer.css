@@ -2,5 +2,5 @@
     text-align: left !important; /* Đảm bảo căn trái */
   }
 .text-color{
-color: black;
+color: black !important;
 }

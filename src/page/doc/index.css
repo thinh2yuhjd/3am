@@ -1,4 +1,44 @@
 ul {
-    list-style-type: none; /* Ẩn dấu chấm */
-    
-  }
+  list-style-type: none; /* Ẩn dấu chấm của các thẻ li */
+  padding-left: 20px; /* Thụt vào theo mong muốn */
+}
+
+li {
+  margin-left: 20px; /* Thụt thêm cho các thẻ li */
+}
+.rotated {
+  transform: rotate(90deg); /* Xoay icon 90 độ */
+}
+.last-updated {
+  opacity: 0.6;
+}
+.notice {
+  color: red;
+  font-weight: bold;
+}
+
+.table-container {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+.custom-hover:hover {
+  background-color: aqua;
+  color: black;
+}

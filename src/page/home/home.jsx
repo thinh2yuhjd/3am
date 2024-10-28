@@ -22,11 +22,14 @@ const Home = () => {
               Giải pháp anti detect browser và quản lý nhiều profile trên cùng
               một PC
             </p>
+            
             <div className="d-flex justify-content-center">
+        
               <button className="download-button mt-5 text-center">
                 <span className="icon"></span>
                 Tải xuống cho Windows
               </button>
+             
             </div>
           </div>
 
