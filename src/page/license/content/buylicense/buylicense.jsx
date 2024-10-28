@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./index.css";
-import { dataLicense } from "./data"; // Adjust the import path
-// import { dataAddress } from '../data/dataAddress'; // Adjust the import path
+import { dataLicense } from "./data";
 import CustomSelect from "./customSelect";
 
 export function BuyLicensePage() {
@@ -163,13 +162,7 @@ export function BuyLicensePage() {
             </div>
           </div>
         </div>
-        <div className="row mt-4">
-          <div className="col-md-12 text-end">
-            <button type="button" class="rounded border-0" style={{padding:'10px', backgroundColor:'rgb(0, 128, 192)', color:'white'}}>
-              Tiếp tục
-            </button>
-          </div>
-        </div>
+
       </div>
     </div>
   );
