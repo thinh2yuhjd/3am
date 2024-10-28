@@ -14,6 +14,8 @@ import { DashboardPage } from './page/license/content/dashboard/dashboard';
 import { BuyLicensePage } from './page/license/content/buylicense/buylicense';
 import { LicenseManagementPage } from './page/license/content/licenseManagement/licensemanagement';
 import { SupportPage } from './page/license/content/support/support';
+import { BuyView } from './page/license/content/buylicense/buyView';
+import { PaymentPage } from './page/license/content/buylicense/payment';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -26,7 +28,8 @@ root.render(
 
         <Route path="/license" element={<LicenseManagement />}>
           <Route path="dashboard" element={<DashboardPage />} />
-          <Route path="buylicense" element={<BuyLicensePage />} />
+          <Route path="buylicense" element={<BuyView />} />
+          <Route path="payment" element={<PaymentPage />} />
           <Route path="management" element={<LicenseManagementPage />} />
           <Route path="support" element={<SupportPage />} />
         </Route>

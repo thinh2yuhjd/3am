@@ -1,12 +1,26 @@
 .title {
   color: rgb(0, 128, 192);
 }
+
 .sub-title {
   color: #808080;
+}
+
+.custom-button {
+  padding: 10px;
+  background-color: rgb(0, 128, 192);
+  color: white;
+}
+
+.custom-button-1 {
+  padding: 10px;
+  background-color: rgb(161, 188, 202);
+  color: white;
 }
 .custom-dropdown {
   position: relative;
   width: 100%;
+
 }
 
 .custom-dropdown-selected {
@@ -41,10 +55,12 @@
 .custom-dropdown-option:hover {
   background-color: rgba(162, 202, 255, 0.712);
 }
+
 .custom-input:focus {
   border: 2px solid rgb(0, 128, 192) !important;
   outline: none;
 }
+
 /* .custom-input:focus-visible{
     color: rgb(0, 128, 192);
 } */

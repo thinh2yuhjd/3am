@@ -1,19 +1,29 @@
-
 .sidebar_main.collapsed {
   width: 100px;
 }
+
 .sidebar_main.expanded {
   width: 270px;
 }
+
 .sub_siderbar.collapsed {
-    width: 100px;
-  }
+  width: 100px;
+}
+
 .sub_siderbar.expanded {
   width: 270px;
 }
-.sidebar_main{
-    transition: width 0.3s ease;
+
+.sidebar_main {
+  transition: width 0.3s ease;
 }
+
+.sidebar_main {
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
 .sub_siderbar {
   transition: width 0.3s ease;
   overflow: hidden;
@@ -81,6 +91,14 @@
   }
 
   .sub_siderbar.expanded {
+    width: 230px;
+  }
+
+  .sidebar_main.collapsed {
+    width: 0px;
+  }
+
+  .sidebar_main.expanded {
     width: 230px;
   }
 }
