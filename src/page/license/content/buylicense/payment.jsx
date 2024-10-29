@@ -1,15 +1,14 @@
 import React from 'react';
 import iconWarningRed from '../../../../img/icon/warning2.png';
 import imgQRPayment from '../../../../img/CAFETAICHINH-QR-PIC.png';
-import { dataPayments } from './dataPayment'; // Đảm bảo import đúng
+import { dataPayments } from './dataPayment'; 
 
 export function PaymentPage() {
-    // Lấy phần tử đầu tiên trong dataPayments
     const paymentInfo = dataPayments[0];
 
     return (
         <div className='container pt-5'>
-            <h3 style={{ fontWeight: '600', textAlign: 'center' }}>Thông tin đơn hàng</h3>
+            <h3 style={{ fontWeight: '600' }}>Thông tin đơn hàng</h3>
             <div className="mt-4 bg-white rounded shadow" style={{ padding: '20px' }}>
                 <div className="border-bottom pb-2 mb-3">
                     <img src={iconWarningRed} alt="Warning" style={{ width: '20px', marginRight: '5px' }} />

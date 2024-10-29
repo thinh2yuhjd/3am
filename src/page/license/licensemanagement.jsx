@@ -4,7 +4,7 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 
 import iconMenubar from "../../img/icon/menu.png";
 import iconLogo from "../../img/logo.png";
-import inconLogdai from "../../img/logodai.png";
+import inconLogoLong from "../../img/logodai.png";
 import iconVienam from "../../img/icon/vietnam.png";
 import iconUser from "../../img/icon/user.png";
 import iconDashboard from "../../img/icon/dashboard.png";
@@ -45,37 +45,39 @@ export function LicenseManagement() {
     <div className="d-flex h-full">
       <div className="siderbar_page h-100 d-flex ">
         <div
-          className={`sub_siderbar border-end ${
-            isCollapsed ? "collapsed" : "expanded"
-          }`}
+          className={`sub_siderbar border-end ${isCollapsed ? "collapsed" : "expanded"
+            }`}
         >
-          <div className={`position-fixed sidebar_main ${
-            isCollapsed ? "collapsed" : "expanded"
-          }`}>
-            <div className=" sidebar_header border-bottom">
+          <div className={`position-fixed sidebar_main ${isCollapsed ? "collapsed" : "expanded"
+            }`}>
+            <div className="sidebar_header border-bottom d-flex justify-content-center align-items-center">
               {!isCollapsed ? (
-                <img src={inconLogdai} className="logo" alt="Logo" />
+                <div className=" d-flex justify-content-center align-items-center" style={{ width: '240px', height: '100%' }}>
+                  <img src={inconLogoLong} className="logo_license_long " alt="Logo" width='100%' height='auto' />
+                </div>
               ) : (
-                <img src={iconLogo} className="logo" alt="Logo" />
+                <div className=" d-flex justify-content-center align-items-center" style={{ width: '60px', height: '100%' }}>
+                  <img src={iconLogo} className="logo_license " alt="Logo" width='100%' height='auto' />
+                </div>
               )}
             </div>
+
             <div>
               <ul className="list-unstyled custom-ul">
                 {menuItems.map((item, index) => (
                   <Link to={item.path} key={index}>
                     <li
-                      className={`custom-li ${
-                        activeIndex === index ? "active" : ""
-                      }`}
+                      className={`custom-li ${activeIndex === index ? "active" : ""
+                        }`}
                       onClick={() => setActiveIndex(index)}
                     >
                       <img
                         src={item.icon}
                         width="25px"
-                        className="me-4"
+                        className=""
                         alt=""
                       />
-                      {!isCollapsed && <span>{item.text}</span>}
+                      {!isCollapsed && <span className="ms-4" >{item.text}</span>}
                     </li>
                   </Link>
                 ))}

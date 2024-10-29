@@ -61,11 +61,11 @@ const Footer = () => {
               </b>
             </li>
             <li>
-              <img src={iconA} alt="" width="30px" className="ps-2" />
-              <img src={iconB} alt="" width="30px" className="ps-2" />
-              <img src={iconC} alt="" width="30px" className="ps-2" />
-              <img src={iconD} alt="" width="30px" className="ps-2" />
-              <img src={iconE} alt="" width="30px" className="ps-2" />
+              <img src={iconA} alt=""  width="30px" className="ps-2" />
+              <img src={iconB} alt=""  width="30px" className="ps-2" />
+              <img src={iconC} alt=""  width="30px" className="ps-2" />
+              <img src={iconD} alt=""  width="30px" className="ps-2" />
+              <img src={iconE} alt=""  width="30px" className="ps-2" />
             </li>
           </ul>
         </div>

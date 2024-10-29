@@ -48,7 +48,9 @@ export function Login() {
                                     <input type="checkbox" id="check" />
                                     <label htmlFor="check" className="ms-2">Ghi nhớ đăng nhập</label>
                                 </div>
-                                <a href="#" className="text-decoration-none">Quên mật khẩu?</a>
+                                <Link to="/forgot-password">
+                                    Quên mật khẩu?
+                                </Link>
                             </div>
                             <Link to="/license">
                                 <button type="submit" className="btn btn-primary w-100">Đăng nhập</button>

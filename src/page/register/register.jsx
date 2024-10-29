@@ -3,13 +3,13 @@ import imgLeft from '../../img/img-left-page-login.png';
 import logo from '../../img/logo.png';
 import iconUser from '../../img/icon/user.png';
 import iconPass from '../../img/icon/padlock.png';
-import iconName from '../../img/icon/label.png';
+import iconName from '../../img/icon/card.png';
 import iconFacebook from '../../img/icon/facebook.png';
 import { Link } from 'react-router-dom';
 import { Login } from '../login/login';
 export function Register() {
     return (
-        <div className='container-fluid vh-100'>
+        <div className='container-fluid vh-100 overflow-hidden'>
             <div className="row h-100">
                 <div className="col-left col-md-6 d-none d-md-flex justify-content-center align-items-center pe-0">
                     <img

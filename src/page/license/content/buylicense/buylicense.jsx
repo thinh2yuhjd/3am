@@ -20,7 +20,7 @@ export function BuyLicensePage() {
 
   return (
     <div className="container pt-5">
-      <h3 className="fw-bold mb-4">Mua license</h3>
+      <h3 className="mb-4" style={{fontWeight: '600'}}>Mua license</h3>
       <div className="p-4 bg-white border rounded shadow-sm">
         <h4 className="mb-4 title">Thông tin phần mềm</h4>
         <div className="row g-3">
