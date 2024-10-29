@@ -41,7 +41,11 @@ ul {
   background-color: #f2f2f2;
 }
 
-.custom-hover:hover {
-  background-color: aqua;
-  color: black;
+.hoverB:hover {
+  background-color: #e6edfb;
+}
+.hoverB {
+  padding: 5px 10px;
+  border-radius: 7px;
+  transition: all 0.2s ease-in-out;
 }

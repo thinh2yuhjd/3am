@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../img/logo.png";
 import "./index.css";
-import iconA from "../../img/icon/docicon.png"; // Import icon của bạn
+import iconA from "../../img/icon/docicon.png";
 import imgProfile from "../../img/Profile.jpg";
 import imgGroup from "../../img/group.jpeg";
 import imgDSexcel from "../../img/mauexcel.jpg";
@@ -15,8 +15,6 @@ const Doc = () => {
   const [visibleList3, setVisibleList3] = useState(false);
   const [visibleList4, setVisibleList4] = useState(false);
   const [selectedContent, setSelectedContent] = useState(null);
-
-  // Định nghĩa nội dung cho từng danh mục một lần duy nhất
   const browserFingerprintContent = (
     <>
       <h2>Browser fingerprint</h2>
@@ -87,8 +85,11 @@ const Doc = () => {
   };
 
   const handleItemClick = (itemContent) => {
+    console.log("Item clicked:", itemContent);
     setSelectedContent(itemContent);
   };
+
+  const isSelected = (item) => selectedContent === item;
 
   return (
     <div>
@@ -114,7 +115,8 @@ const Doc = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-3 custom-doc-li">
-            <div className="custom-hover"
+            <div
+              className="hoverB"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -123,8 +125,12 @@ const Doc = () => {
               }}
             >
               <p
-                onClick={() => setSelectedContent(browserFingerprintContent)}
-                style={{ marginRight: "10px", flexGrow: 1 }}
+                onClick={() => handleItemClick(browserFingerprintContent)}
+                className="my-auto"
+                style={{
+                  backgroundColor:
+                    selectedContent === Error ? "lightblue" : "transparent",
+                }}
               >
                 Browser fingerprint
               </p>
@@ -132,17 +138,17 @@ const Doc = () => {
                 src={iconA}
                 alt="Toggle List"
                 onClick={toggleList1Visibility}
-                className={visibleList1 ? "rotated" : ""}
+                className={`${visibleList1 ? "rotated" : ""}  my-auto `}
                 style={{
                   cursor: "pointer",
                   transition: "transform 0.3s ease",
-                  marginBottom: "15px",
                 }}
               />
             </div>
             {visibleList1 && (
               <ul>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -159,12 +165,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Địa chỉ IP
                 </li>
 
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -181,12 +188,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Timezone
                 </li>
 
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -205,12 +213,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Geo location
                 </li>
 
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -254,12 +263,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   {" "}
                   WebRTC IP
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -311,11 +321,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Hardware: Canvas
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -366,11 +377,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Hardware: WebGL
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -419,11 +431,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Hardware: Audio
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -435,11 +448,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Hardware: CPU, RAM
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -459,11 +473,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Software: User Agent
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -476,11 +491,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Software: Screen
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -493,11 +509,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Software: Font
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -511,11 +528,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Software: Hệ điều hành
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -531,13 +549,14 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   TCP/IP Fingerprint
                 </li>
               </ul>
             )}
             <div
+              className="hoverB"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -546,8 +565,12 @@ const Doc = () => {
               }}
             >
               <p
-                onClick={() => setSelectedContent(apiDocument)}
-                style={{ marginRight: "10px", flexGrow: 1 }}
+                onClick={() => handleItemClick(apiDocument)}
+                className="my-auto"
+                style={{
+                  backgroundColor:
+                    selectedContent === Error ? "lightblue" : "transparent",
+                }}
               >
                 Document
               </p>
@@ -555,17 +578,17 @@ const Doc = () => {
                 src={iconA}
                 alt="Toggle List"
                 onClick={toggleList2Visibility}
-                className={visibleList2 ? "rotated" : ""}
+                className={`${visibleList2 ? "rotated" : ""}  my-auto `}
                 style={{
                   cursor: "pointer",
                   transition: "transform 0.3s ease",
-                  marginBottom: "15px",
                 }}
               />
             </div>
             {visibleList2 && (
               <ul>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -618,11 +641,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Danh sách profiles
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -666,11 +690,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Tạo profiles
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -752,12 +777,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   {" "}
                   Cập nhập profiles
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -794,12 +820,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   {" "}
                   Xóa Profile
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -823,24 +850,21 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   {" "}
                   Danh sách nhóm
                 </li>
               </ul>
             )}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-                justifyContent: "space-between",
-              }}
-            >
+            <div className="hoverB d-flex justify-content-between align-items-center cursor-pointer">
               <p
-                onClick={() => setSelectedContent(None_code)}
-                style={{ marginRight: "10px", flexGrow: 1 }}
+                onClick={() => handleItemClick(None_code)}
+                className="my-auto" 
+                style={{
+                  backgroundColor:
+                    selectedContent === Error ? "lightblue" : "transparent",
+                }}
               >
                 None-code automation
               </p>
@@ -848,17 +872,18 @@ const Doc = () => {
                 src={iconA}
                 alt="Toggle List"
                 onClick={toggleList3Visibility}
-                className={visibleList3 ? "rotated" : ""}
+                className={`${
+                  visibleList3 ? "rotated" : ""
+                }  my-auto cursor-pointer`}
                 style={{
-                  cursor: "pointer",
                   transition: "transform 0.3s ease",
-                  marginBottom: "15px",
                 }}
               />
             </div>
             {visibleList3 && (
               <ul>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -972,12 +997,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   {" "}
                   Các block
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1068,11 +1094,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Programming
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1142,11 +1169,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBlock: "5px" }}
                 >
                   Navigation
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1200,13 +1228,14 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   {" "}
                   Element
                 </li>
 
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1254,12 +1283,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   {" "}
                   Mouse
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1315,12 +1345,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   {" "}
                   Keyboard
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1368,12 +1399,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   {" "}
                   Scroll
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1448,12 +1480,13 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   {" "}
                   Other
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1492,24 +1525,21 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   {" "}
                   Helper
                 </li>
               </ul>
             )}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                cursor: "pointer",
-                justifyContent: "space-between",
-              }}
-            >
+            <div className="hoverB d-flex justify-content-between align-items-center cursor-pointer">
               <p
-                onClick={() => setSelectedContent(Error)}
-                style={{ marginRight: "10px", flexGrow: 1 }}
+                onClick={() => handleItemClick(Error)}
+                className="my-auto"
+                style={{
+                  backgroundColor:
+                    selectedContent === Error ? "lightblue" : "transparent",
+                }}
               >
                 Lỗi thường gặp
               </p>
@@ -1517,17 +1547,18 @@ const Doc = () => {
                 src={iconA}
                 alt="Toggle List"
                 onClick={toggleList4Visibility}
-                className={visibleList4 ? "rotated" : ""}
+                className={`${
+                  visibleList4 ? "rotated" : ""
+                }  my-auto cursor-pointer`}
                 style={{
-                  cursor: "pointer",
                   transition: "transform 0.3s ease",
-                  marginBottom: "15px",
                 }}
               />
             </div>
             {visibleList4 && (
               <ul>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1556,11 +1587,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   Không nhận thông số fake{" "}
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1580,11 +1612,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   Bị xóa file thực thi exe{" "}
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1602,11 +1635,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   Không kết nối được Proxy / Socks5
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1635,11 +1669,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   Profile không lưu dữ liệu
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1660,11 +1695,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   Lỗi liên quan cookie
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1723,11 +1759,12 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   Báo đỏ ở một số trang check
                 </li>
                 <li
+                  className="hoverB"
                   onClick={() =>
                     handleItemClick(
                       <>
@@ -1761,7 +1798,7 @@ const Doc = () => {
                       </>
                     )
                   }
-                  style={{ cursor: "pointer", marginBottom: "10px" }}
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
                 >
                   Tài khoản bị logout khỏi google
                 </li>

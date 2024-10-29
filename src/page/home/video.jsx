@@ -1,6 +1,6 @@
 import React from "react";
 import { Player } from "video-react";
-import "video-react/dist/video-react.css"; // Đảm bảo rằng bạn đã import CSS của video-react
+import "video-react/dist/video-react.css"; 
 
 const Video = () => {
   return (
