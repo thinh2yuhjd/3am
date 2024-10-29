@@ -1,17 +1,20 @@
 ul {
-  list-style-type: none; /* Ẩn dấu chấm của các thẻ li */
-  padding-left: 20px; /* Thụt vào theo mong muốn */
+  list-style-type: none;
+  padding-left: 20px;
 }
 
-li {
-  margin-left: 20px; /* Thụt thêm cho các thẻ li */
+#root > div > div:nth-child(3) > div > div.col-md-3.custom-doc-li > ul > li{
+  margin-left: 20px;
 }
+
 .rotated {
-  transform: rotate(90deg); /* Xoay icon 90 độ */
+  transform: rotate(90deg);
 }
+
 .last-updated {
   opacity: 0.6;
 }
+
 .notice {
   color: red;
   font-weight: bold;

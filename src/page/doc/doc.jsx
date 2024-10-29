@@ -113,7 +113,7 @@ const Doc = () => {
       ></div>
       <div className="container">
         <div className="row">
-          <div className="col-md-3 ">
+          <div className="col-md-3 custom-doc-li">
             <div className="custom-hover"
               style={{
                 display: "flex",
