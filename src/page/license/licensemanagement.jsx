@@ -11,13 +11,18 @@ import iconDashboard from "../../img/icon/dashboard.png";
 import iconLicense from "../../img/icon/cart.png";
 import iconLicenseManagement from "../../img/icon/management.png";
 import iconSupport from "../../img/icon/customer-service.png";
-
+import iconInfor from "../../img/icon/information-button.png";
+import iconLogout from "../../img/icon/logout.png";
 import { Link } from "react-router-dom";
 
 export function LicenseManagement() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [isOpenmenu, setisOpenmenu] = useState();
 
   const menuItems = [
     { icon: iconDashboard, text: "Tổng quan", path: "/license/dashboard" },
@@ -29,7 +34,7 @@ export function LicenseManagement() {
     },
     { icon: iconSupport, text: "Hỗ trợ", path: "/license/support" },
   ];
-  const [isCollapsed, setIsCollapsed] = useState(false);
+
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -41,6 +46,9 @@ export function LicenseManagement() {
     }
   }, [location.pathname, navigate]);
 
+  const toggleMenuInfo = () => {
+    setisOpenmenu(!isOpenmenu);
+  }
   return (
     <div className="d-flex h-full">
       <div className="siderbar_page h-100 d-flex ">
@@ -87,23 +95,52 @@ export function LicenseManagement() {
         </div>
       </div>
       <div className="content_page w-100">
-        <div className="bg-white position-fixed d-flex justify-content-between align-items-center w-100 content_header border-bottom">
+        <div className="border d-flex justify-content-between align-items-center" style={{ height: '64px' }} >
+
+          <button
+            className="button_menubar border-0 ms-2"
+            style={{ height: '100px' }}
+            onClick={toggleSidebar}
+          >
+            <img width="28px" src={iconMenubar} alt="Toggle Sidebar" />
+          </button>
+          <div className="position-relative text-end me-3 mt-3" style={{ width: '220px', height: '100%' }}>
+            <button className="border-0 rounded-circle" onClick={toggleMenuInfo} style={{ width: '50px', height: '50px' }}>
+              {isOpenmenu ? <img src={iconUser} alt="" /> : <img src={iconUser} alt="" />}
+            </button>
+            {
+              isOpenmenu &&
+              <ul className="menu_user rounded position-absolute mt-2 border text-start" style={{ width: '220px' }}>
+
+                <Link to='/license/my-account' class='text-decoration-none'>
+                  <li className="py-2 ps-3">
+                    <img src={iconInfor} alt="" className="pe-2"/>
+                    Thông tin người dùng
+                  </li>
+                </Link>
+                <Link to='/login' class='text-decoration-none'>
+                  <li className="py-2 ps-3">
+                    <img src={iconLogout} alt="" className="pe-2"/>
+                    Đăng xuất
+                  </li>
+                </Link>
+              </ul>
+            }
+
+          </div>
+
+
+        </div>
+        {/* <div className="bg-white position-fixed d-flex justify-content-between align-items-center w-100 content_header border-bottom">
           <button
             className="button_menubar border-0 ms-2"
             onClick={toggleSidebar}
           >
             <img width="28px" src={iconMenubar} alt="Toggle Sidebar" />
           </button>
-          {/* <div className="d-flex me-4 gap-2">
-                        <button className='button_menubar border-0'>
-                            <img width='32px' src={iconVienam} alt="Vietnam" />
-                        </button>
-                        <button className='button_menubar border-0'>
-                            <img width='32px' src={iconUser} alt="User" />
-                        </button>
-                    </div> */}
-        </div>
-        <div className="sub_content h-100 mt-5">
+          <button className="button_infor">ifnor</button>
+        </div> */}
+        <div className="sub_content h-100">
           <Outlet />
         </div>
       </div>

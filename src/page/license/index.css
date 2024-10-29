@@ -34,10 +34,10 @@
   background-color: #f5f6fa;
 }
 
-
 .sidebar_header,
 .content_header {
   height: 64px;
+
 }
 
 .button_menubar {
@@ -80,6 +80,21 @@
   background-color: rgba(162, 202, 255, 0.712);
   cursor: pointer;
   color: #0d6efd;
+}
+
+.menu_user{
+  background-color: white;
+
+}
+
+.menu_user li {
+  height: 100%;
+  line-height: 30px;
+  color: black;
+}
+
+.menu_user li:hover {
+  background-color: rgba(162, 202, 255, 0.712);
 }
 
 @media (max-width: 425px) {

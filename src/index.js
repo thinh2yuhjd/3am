@@ -17,6 +17,7 @@ import { SupportPage } from './page/license/content/support/support';
 import { BuyView } from './page/license/content/buylicense/buyView';
 import { PaymentPage } from './page/license/content/buylicense/payment';
 import { ForgotPassPage } from './page/forgotPass/forgotpass';
+import { InformationPage } from './page/license/content/infor/information';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -33,6 +34,7 @@ root.render(
           <Route path="payment" element={<PaymentPage />} />
           <Route path="management" element={<LicenseManagementPage />} />
           <Route path="support" element={<SupportPage />} />
+          <Route path="my-account" element={<InformationPage />} />
         </Route>
 
 
