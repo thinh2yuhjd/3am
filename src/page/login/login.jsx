@@ -53,7 +53,11 @@ export function Login() {
                                 </Link>
                             </div>
                             <Link to="/license">
-                                <button type="submit" className="btn btn-primary w-100">Đăng nhập</button>
+                                <button type="submit" className="btn btn-primary w-100">
+
+                                    Đăng nhập
+
+                                </button>
                             </Link>
                             <p className="mt-3">
                                 Bạn chưa có tài khoản?
