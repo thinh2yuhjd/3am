@@ -1,6 +1,6 @@
 import './App.css';
 import Footer from './component/footer/footer';
-import Header from './component/header/header';
+// import Header from './component/header/header';
 import Home from './page/home/home';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <GoogleOAuthProvider clientId={clientId}>
       <div className="App">
-        <Header />
+       
         <Home />
         <Footer />
       </div>
