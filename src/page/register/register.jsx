@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import imgLeft from '../../img/img-left-page-login.png';
 import logo from '../../img/logo.png';
 import iconUser from '../../img/icon/user.png';
@@ -8,6 +8,13 @@ import iconFacebook from '../../img/icon/facebook.png';
 import { Link } from 'react-router-dom';
 import { Login } from '../login/login';
 export function Register() {
+
+    const [isChecked, setisChecked] = useState(false);
+
+    const handleChecked = (event) => {
+        setisChecked(event.target.checked)
+    }
+
     return (
         <div className='container-fluid vh-100 overflow-hidden'>
             <div className="row h-100">
@@ -81,10 +88,12 @@ export function Register() {
                                 />
                             </div>
                             <div className="d-flex justify-content-between mb-3">
-                                <input type="checkbox" id="check" />
+                                <input type="checkbox" id="check" checked={isChecked} onChange={handleChecked} />
                                 <label htmlFor="check" className="ms-2">Việc tạo tài khoản đồng nghĩa với việc bạn đồng ý với các Điều khoản & Điều kiện và Chính sách quyền riêng tư của chúng tôi</label>
                             </div>
-                            <button type="submit" className="btn btn-primary w-100">Đăng ký</button>
+
+                            <button disabled={!isChecked} type="submit" className={`${isChecked ? 'btn btn-primary w-100' : 'btn btn-light w-100'} `}>Đăng ký</button>
+
                             <p className="mt-3">
                                 Bạn đã có tài khoản?
                                 <Link to="/login">

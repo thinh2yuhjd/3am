@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export function InformationPage() {
+
+    const [isChecked, setisChecked] = useState(false);
+    const handdleChecked = (event) => {
+        setisChecked(event.target.checked);
+    }
+
     return (
         <div className='container pt-5'>
             <h3 className="mb-4" style={{ fontWeight: '600' }}>
@@ -64,12 +71,11 @@ export function InformationPage() {
                 </div>
                 <div className="row mb-4">
                     <div className="d-flex">
-
                         <input
                             type="checkbox"
                             id="changpass"
                             className="form-check-input"
-                        // onChange={handleModuleChange}
+                            onChange={handdleChecked}
                         />
                         <label className="form-check-label ms-2" htmlFor="changpass">
                             Đổi mật khẩu
@@ -83,6 +89,7 @@ export function InformationPage() {
                         </span>
                         <div className="mt-2 w-100 rounded">
                             <input
+                                disabled={!isChecked}
                                 className="border rounded custom-input"
                                 type="text"
                                 style={{ width: "100%", padding: "10px" }}
@@ -91,12 +98,11 @@ export function InformationPage() {
                     </div>
                     <div className="col-md-6">
                         <span className="sub-title">
-
-
-                            Mật lại mật khẩu mới
+                            Nhập lại mật khẩu mới
                         </span>
                         <div className="mt-2 w-100 rounded">
                             <input
+                                disabled={!isChecked}
                                 className="border rounded custom-input"
                                 type="text"
                                 style={{ width: "100%", padding: "10px" }}
@@ -125,7 +131,7 @@ export function InformationPage() {
                         <span className="sub-title">
 
 
-                        Địa chỉ <span style={{color:'red'}}>*</span>
+                            Địa chỉ <span style={{ color: 'red' }}>*</span>
                         </span>
                         <div className="mt-2 w-100 rounded">
                             <input
@@ -141,7 +147,7 @@ export function InformationPage() {
                         <span className="sub-title">
 
 
-                        Mã số thuế (nếu cần xuất hóa đơn) <span style={{color:'red'}}>*</span>
+                            Mã số thuế (nếu cần xuất hóa đơn) <span style={{ color: 'red' }}>*</span>
                         </span>
                         <div className="mt-2 w-100 rounded">
                             <input
@@ -154,8 +160,10 @@ export function InformationPage() {
                 </div>
             </div>
             <div className="container text-end ">
-                <button className="custom-button rounded border-0 me-3">Cập nhật</button>
-                <button className="custom-button rounded border-0">Hủy bỏ</button>
+                <button className="custom-button rounded border-0 me-3" type='submit'>Cập nhật</button>
+                <Link to="/license/dashboard">
+                    <button className="custom-button rounded border-0">Hủy bỏ</button>
+                </Link>
             </div>
         </div>
     )
