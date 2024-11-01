@@ -4,7 +4,7 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 
 import iconMenubar from "../../img/icon/menu.png";
 import iconLogo from "../../img/logo.png";
-import inconLogoLong from "../../img/logodai.png";
+import iconLogoLong from "../../img/logodai.png";
 import iconVienam from "../../img/icon/vietnam.png";
 import iconUser from "../../img/icon/user.png";
 import iconDashboard from "../../img/icon/dashboard.png";
@@ -14,7 +14,7 @@ import iconSupport from "../../img/icon/customer-service.png";
 import iconInfor from "../../img/icon/information-button.png";
 import iconLogout from "../../img/icon/logout.png";
 import iconSidebar from "../../img/icon/down-arrow-sidebar.png"
-
+import iconUpSidebar from "../../img/icon/up-arrow-sidebar.png"
 import { Link } from "react-router-dom";
 
 export function LicenseManagement() {
@@ -68,13 +68,31 @@ export function LicenseManagement() {
     <div className=''>
       <div className="header-main d-flex border">
         <div className={`header-sidebar ${isopenSidebar ? 'collaps' : 'expends'} d-flex position-relative`}>
-          <div className={`border sidebar-sub ${isopenSidebar ? 'collaps' : 'expends'}`}>icon</div>
-          <button className='position-absolute icon-sub' onClick={handleOpen}><img src={iconSidebar} alt="" /></button>
+          <div className={`border sidebar-sub ${isopenSidebar ? 'collaps' : 'expends'} d-flex justify-content-center align-items-center`}>
+            {isopenSidebar ? (
+              <div className="logo-sidebar-short " >
+                <img src={iconLogo} alt="" className="w-100 h-100" />
+              </div>
+            ) : (
+
+              <div className="logo_sidebar-long " style={{width:'240px', height:'auto'}}>
+                <img src={iconLogoLong} alt="" className="w-100 h-100" />
+              </div>
+            )
+
+            }
+          </div>
+          {isopenSidebar ? (
+            <button className='position-absolute icon-sub' style={{ right: -10, top: 20 }} onClick={handleOpen}><img src={iconUpSidebar} alt="" /></button>
+          ) : (
+            <button className='position-absolute icon-sub' style={{ right: 16, top: 20 }} onClick={handleOpen}><img src={iconSidebar} alt="" /></button>
+          )
+          }
         </div>
-        
+
         <div className="header-content text-end w-100 d-flex justify-content-end">
           <div className="position-relative text-end" style={{ width: '220px', height: '100%' }} ref={menuRef}>
-            <button className="border-0 rounded-circle mt-1 me-2" onClick={toggleMenuInfo} style={{ width: '50px',lineHeight:'50px' }}>
+            <button className="border-0 rounded-circle mt-1 me-2" onClick={toggleMenuInfo} style={{ width: '50px', lineHeight: '50px' }}>
               <img src={iconUser} alt="" />
             </button>
             {isOpenmenu && (
