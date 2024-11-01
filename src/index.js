@@ -18,6 +18,7 @@ import { BuyView } from './page/license/content/buylicense/buyView';
 import { PaymentPage } from './page/license/content/buylicense/payment';
 import { ForgotPassPage } from './page/forgotPass/forgotpass';
 import { InformationPage } from './page/license/content/infor/information';
+import Test from './page/test/test';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -42,6 +43,8 @@ root.render(
         <Route path="/forgot-password" element={<ForgotPassPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/doc" element={<Doc />} />
+        <Route path="/test" element={<Test/>} />
+        
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
