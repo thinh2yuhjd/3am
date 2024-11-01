@@ -1,4 +1,4 @@
-.sidebar_main.collapsed {
+/* .sidebar_main.collapsed {
   width: 100px;
 }
 
@@ -36,6 +36,38 @@
 
 .sidebar_header {
   /* border-right: 1px solid #ddd; */
+/* } */
+
+.header-main {
+  height: 64px;
+}
+
+.header-sidebar.expends {
+  width: 350px;
+}
+
+.header-sidebar.collaps {
+  width: 100px;
+}
+
+.sidebar-sub.expends {
+  width: 270px;
+}
+
+.sidebar-sub.collaps {
+  width: 100px;
+}
+
+.icon-sub {
+  right: 10px;
+  top: 12px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.content-sidebar {
+  width: 270px;
 }
 
 .sidebar_main {
@@ -64,7 +96,7 @@
   background-color: transparent;
 }
 
-.custom-li {
+*/ .custom-li {
   height: 50px;
   line-height: 50px;
   position: relative;
