@@ -3,22 +3,20 @@ import logo from "../../img/logo.png";
 import search_icon from "../../img/icon/search_icon.png";
 import iconA from "../../img/icon/trustworthy-status.svg";
 import iconB from "../../img/icon/mcil.png";
-import iconC from "../../img/icon/browserleaks.png";
 import iconD from "../../img/icon/creepjs.png";
-import iconE from "../../img/icon/f.vision.jpg";
-import iconF from "../../img/icon/AppIcon-WhiteSymbol.png";
-import iconH from "../../img/icon/scan.jpg";
+import iconE from "../../img/icon/f.vision.png";
+import iconC from "../../img/icon/browserleaks.png";
 import iconcheck from "../../img/icon/checkhome.png";
 import iconT from "../../img/icon/ruby.png";
 import why3am from "../../img/why3am.png";
-import Video from "./video"; 
+import Video from "./video";
 import "./index.css";
 import { useNavigate, Link } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const onhangdleLogin = () => {
-        navigate("/login");
-       };
+    navigate("/login");
+  };
   const [isOpenSearch, setIsOpenSearch] = useState(false);
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -44,169 +42,176 @@ const Home = () => {
 
   return (
     <div>
-      {/* Header */}
       <div className="">
-      <div className="background-home">
-      <div className="container mt-4">
-        <div className="border mt-4 rounded-pill" style={{ backgroundColor: "#FFFFFF" }}>
-          <div className="row" style={{ height: "64px" }}>
-            <div className="col-md-3 my-auto text-start">
-              <img src={logo} alt="Logo" className="ps-3" />
-            </div>
-            <div className="col-md-6 my-auto">
-              <ul className="d-flex">
-                <li className="nav-item">
-                  <a className="nav-link active color_nav" href="#">
-                    Trang Chủ
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link active color_nav" href="#">
-                    Bảng Giá
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <Link to="/doc" className="nav-link active color_nav">
-                    Tài Liệu
-                  </Link>
-                </li>
-                <li className="nav-item dropdown" ref={dropdownRef}>
-                  <a
-                    className="nav-link dropdown-toggle color_nav"
-                    href="#"
-                    id="navbarDropdownMenuLink"
-                    role="button"
-                    onClick={toggleDropdown}
+        <div className="background-home pt-4">
+          <div className="container ">
+            <div
+              className="border rounded-pill"
+              style={{ width: "100%", backgroundColor: "#FFFFFF" }}
+            >
+              <div className="row" style={{ height: "64px" }}>
+                <div className="col-md-3 my-auto text-start">
+                  <img src={logo} alt="Logo" className="ps-3" />
+                </div>
+                <div className="col-md-6 my-auto">
+                  <ul className="d-flex">
+                    <li className="nav-item">
+                      <a className="nav-link active color_nav" href="#">
+                        Trang Chủ
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link active color_nav" href="#">
+                        Bảng Giá
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <Link to="/doc" className="nav-link active color_nav">
+                        Tài Liệu
+                      </Link>
+                    </li>
+                    <li className="nav-item dropdown" ref={dropdownRef}>
+                      <a
+                        className="nav-link dropdown-toggle color_nav"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        onClick={toggleDropdown}
+                      >
+                        Mua Phần Mềm
+                      </a>
+                      {open && (
+                        <ul
+                          className="dropdown-menu"
+                          style={{ position: "absolute", top: "100%", left: 0 }}
+                        >
+                          <li>
+                            <a className="dropdown-item color_nav" href="#">
+                              Mua qua facebook
+                            </a>
+                          </li>
+                          <li className="dropdown-item color_nav">
+                            <a
+                              href=""
+                              className="text-decoration-none color_nav"
+                            >
+                              Mua online
+                            </a>
+                          </li>
+                        </ul>
+                      )}
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-md-3 my-auto d-flex justify-content-end pe-4">
+                  <div onClick={handleOpen}>
+                    <img src={search_icon} alt="search" className="pe-3" />
+                  </div>
+                  <button
+                    className="rounded-pill"
+                    style={{ width: "100px", backgroundColor: "#1C252E" }}
+                    onClick={onhangdleLogin}
                   >
-                    Mua Phần Mềm
-                  </a>
-                  {open && (
-                    <ul className="dropdown-menu" style={{ position: "absolute", top: "100%", left: 0 }}>
-                      <li>
-                        <a className="dropdown-item color_nav" href="#">
-                          Mua qua facebook
-                        </a>
-                      </li>
-                      <li className="dropdown-item color_nav">
-                        <Link to="/license" className="text-decoration-none color_nav">
-                          Mua online
-                        </Link>
-                      </li>
-                    </ul>
-                  )}
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-3 my-auto d-flex justify-content-end pe-4">
-              <div onClick={handleOpen}>
-                <img src={search_icon} alt="search" className="pe-3" />
+                    <a style={{ color: "white" }}>Đăng ký</a>
+                  </button>
+                </div>
               </div>
-              <button className="rounded-pill" style={{ width: "40%" }} onClick={onhangdleLogin}>
-                Đăng ký
-              </button>
             </div>
+            {isOpenSearch && (
+              <div className="search-popup-overlay" onClick={handleOpen}>
+                <div
+                  className="search-popup-content"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <h2>Khu vực tìm kiếm</h2>
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    className="form-control"
+                  />
+                  <button className="btn btn-primary mt-2">Tìm kiếm</button>
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-        {isOpenSearch && (
-          <div className="search-popup-overlay" onClick={handleOpen}>
-            <div className="search-popup-content" onClick={(e) => e.stopPropagation()}>
-              <h2>Khu vực tìm kiếm</h2>
-              <input type="text" placeholder="Search..." className="form-control" />
-              <button className="btn btn-primary mt-2">Tìm kiếm</button>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Home Content */}
-      <div className="home-container mt-1">
-          <div className="container pt-5 text-start">
-            <div className="col-md-5">
-              <h1>Web3 Automation Multi</h1>
-              <p className="last-updated pt-5">
-                Giải pháp trình duyệt anti-detect và quản lý nhiều tài khoản
-                trên một máy tính giúp bảo vệ danh tính, vận hành an toàn và
-                hiệu quả cho các hoạt động tiếp thị và quản lý tài khoản.
-              </p>
-              <div className="d-flex">
-                <button className="download-button mt-4">
-                  <span className="icon"></span>
-                  Tải xuống cho Windows
-                </button>
+          <div className="home-container mt-1">
+            <div className="container pt-5 text-start">
+              <div className="col-md-3" style={{ color: "white" }}>
+                <h1 style={{ fontSize: "60px", fontWeight: "600" }}>
+                  Web3 Automation Multiple
+                </h1>
+                <p className="last-updated pt-3">
+                  Giải pháp trình duyệt anti-detect và quản lý nhiều tài khoản
+                  trên một máy tính giúp bảo vệ danh tính, vận hành an toàn và
+                  hiệu quả cho các hoạt động tiếp thị và quản lý tài khoản.
+                </p>
+                <div className="d-flex">
+                  <button
+                    className="rounded-pill d-flex align-items-center justify-content-evenly p-2"
+                    style={{ width: "300px", backgroundColor: "#24A1DE" }}
+                  >
+                    <span className="icon "></span>
+                    <a
+                      href="#"
+                      className="text-decoration-none"
+                      style={{ color: "white" }}
+                    >
+                      Tải xuống cho Windows
+                    </a>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        {/* Các phần khác từ Home */}
-        <div className="container-fluid" style={{ backgroundColor: "rgb(248, 249, 255)" }}>
-          <div className="container-fluid">
-            <section className="section" id="section_1700118574">
-              <div className="bg section-bg fill"></div>
-              <div className="section-content relative">
-                <div className="row align-center mt-4 pt-4">
-                  <div className="col overflow-hidden small-12 large-12 text-center">
-                    <h1 style={{ marginBottom: "20px", color: "#24A1DE" }}>
-                      Được hơn 20.000 người dùng tin tưởng.
-                    </h1>
-                    <div className="marquee" style={{ height: "55px", overflow: "hidden" }}>
-                      <ul className="test-site-container">
-                        <li>
-                          <img src={iconA} alt="" width="30px" className="pe-2" />
-                          <a href="https://iphey.com/" target="_blank" rel="noopener">
-                            iphey.com
-                          </a>
-                        </li>
-                        <li>
+            <div className="">
+            <h1 style={{ fontSize: "50px", fontWeight: "600", color:"#172755" }}>Được hơn 20.000 người dùng tin tưởng.</h1>
+            </div>
+            <div className="mt-5 container border d-flex align-items-center justify-content-evenly" style={{borderRadius:'20px', height:"150px", backgroundColor:"#172755"}}>
+            <ul  className="test-site-container  w-100 d-flex align-items-center justify-content-evenly">
+            <li>
                           <img src={iconB} alt="" width="35px" className="pe-2" />
-                          <a href="https://pixelscan.net/" target="_blank" rel="noopener">
+                          <a href="https://pixelscan.net/" target="_blank" rel="noopener" style={{color:'white'}}>
                             pixelscan.net
                           </a>
                         </li>
                         <li>
-                          <img src={iconC} alt="" width="35px" className="pe-2" />
-                          <a href="https://browserleaks.com/" target="_blank" rel="noopener">
-                            browserleaks.com
-                          </a>
-                        </li>
-                        <li>
                           <img src={iconD} alt="" width="35px" className="pe-2" />
-                          <a href="https://abrahamjuliot.github.io/creepjs/" target="_blank" rel="noopener">
+                          <a href="https://abrahamjuliot.github.io/creepjs/" target="_blank" rel="noopener" style={{color:'white'}}>
                             creepjs
                           </a>
                         </li>
                         <li>
-                          <img src={iconE} alt="" width="35px" className="pe-2" />
-                          <a href="http://f.vision/" target="_blank" rel="noopener">
+                          <img src={iconE} alt="" width="35px" className="pe-2"  />
+                          <a href="http://f.vision/" target="_blank" rel="noopener" style={{color:'white'}}>
                             f.vision
                           </a>
                         </li>
                         <li>
-                          <img src={iconF} alt="" width="35px" className="pe-2" />
-                          <a href="https://fingerprint.com/products/bot-detection/" target="_blank" rel="noopener">
-                            fingerprintjs
+                          <img src={iconC} alt="" width="35px" className="pe-2"  />
+                          <a href="https://browserleaks.com/" target="_blank" rel="noopener" style={{color:'white'}}>
+                            browserleaks.com
                           </a>
                         </li>
-                        <li>
-                          <img src={iconH} alt="" width="35px" className="pe-2" />
-                          <a href="https://www.browserscan.net/" target="_blank" rel="noopener">
-                            browserscan.net
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
 
-        {/* Phần nội dung khác từ Home */}
+                        <li>
+                          <img src={iconA} alt="" width="30px" className="pe-2"  />
+                          <a href="https://iphey.com/" target="_blank" rel="noopener" style={{color:'white'}}>
+                            iphey.com
+                          </a>
+                        </li>
+
+            </ul>
+            </div>
         <div className="container">
           <div className="row pt-5">
             <div className="col-md-6 col-sx-12">
               <div className="overflow-hidden object-fit">
-                <img src={why3am} alt="Web3 Automation" className="w-100 h-100" />
+                <img
+                  src={why3am}
+                  alt="Web3 Automation"
+                  className="w-100 h-100"
+                />
               </div>
             </div>
             <div className="col-md-6 col-sx-12">
@@ -233,15 +238,13 @@ const Home = () => {
                 </p>
                 <p>
                   <img src={iconcheck} alt="" className="pe-2" />
-                  License vĩnh viễn, giá rẻ nhất thị trường với hơn 20 ngàn thiết
-                  bị đang sử dụng tính từ năm 2021
+                  License vĩnh viễn, giá rẻ nhất thị trường với hơn 20 ngàn
+                  thiết bị đang sử dụng tính từ năm 2021
                 </p>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Bảng giá */}
         <div className="container mt-5 chu">
           <h2 style={{ color: "#24A1DE" }}>Bảng giá</h2>
           <div className="mt-3 last-updated">
@@ -293,7 +296,11 @@ const Home = () => {
                         Upgrade
                       </button>
                       <div className="w-100 text-center ">
-                        <a href="#" className="text-decoration-none" style={{ color: "gray" }}>
+                        <a
+                          href="#"
+                          className="text-decoration-none"
+                          style={{ color: "gray" }}
+                        >
                           Learn More
                         </a>
                       </div>
@@ -345,7 +352,11 @@ const Home = () => {
                         Upgrade
                       </button>
                       <div className="w-100 text-center ">
-                        <a href="#" className="text-decoration-none" style={{ color: "gray" }}>
+                        <a
+                          href="#"
+                          className="text-decoration-none"
+                          style={{ color: "gray" }}
+                        >
                           Learn More
                         </a>
                       </div>
@@ -397,7 +408,11 @@ const Home = () => {
                         Upgrade
                       </button>
                       <div className="w-100 text-center ">
-                        <a href="#" className="text-decoration-none" style={{ color: "gray" }}>
+                        <a
+                          href="#"
+                          className="text-decoration-none"
+                          style={{ color: "gray" }}
+                        >
                           Learn More
                         </a>
                       </div>
@@ -408,8 +423,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        {/* Hướng dẫn sử dụng */}
         <div className="container">
           <div className="mt-5 text-start">
             <h2 style={{ color: "#24A1DE" }}>Hướng dẫn sử dụng</h2>
@@ -419,7 +432,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

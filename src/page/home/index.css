@@ -7,11 +7,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5); 
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* Ensure it appears above other content */
+  z-index: 1000; 
 }
 
 .search-popup-content {
@@ -26,81 +26,39 @@
 .color_nav{
   color: black !important;
 }
-.image-gallery {
-  margin: 20px 0; /* Khoảng cách giữa hình ảnh và nút */
-}
+
 .background-home{
   background-image: url(../../img/bg.png);
-  /* background-position: center; */
   background-size: contain;
   background-repeat: no-repeat;
-height: 100vh; 
+height: 100vh;
 }
-.responsive-image {
-  max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng màn hình */
-  height: auto; /* Giữ tỷ lệ hình ảnh */
-  width: 60%;
-}
-
-.download-button {
-  display: flex;
-  align-items: center;
-  background-color: white; /* Màu nền */
-  color:  #24A1DE; /* Màu chữ */
-  padding: 10px 15px; /* Khoảng cách bên trong */
-  border-color: #24A1DE;
-  border-radius: 5px; /* Bo góc */
-  cursor: pointer; /* Con trỏ khi di chuột */
-  font-size: 16px; /* Kích thước chữ */
-  transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
-}
-
-
 .icon {
-  width: 20px; /* Kích thước biểu tượng */
-  height: 20px; /* Kích thước biểu tượng */
-  background-image: url('../../img/logowwindowns.png'); /* Thay thế bằng tên tệp hình ảnh của bạn */
-  background-size: contain; /* Kích thước biểu tượng */
-  background-repeat: no-repeat; /* Không lặp lại biểu tượng */
-  margin-right: 8px; /* Khoảng cách giữa biểu tượng và chữ */
-  display: inline-block; /* Đảm bảo biểu tượng hiển thị đúng */
+  width: 20px;
+  height: 20px; 
+  background-image: url('../../img/logowwindowns.png'); 
+  background-size: contain;
+  background-repeat: no-repeat; 
+  margin-right: 8px; 
+  display: inline-block; 
 }
 
 .test-site-container {
-  list-style: none; /* Bỏ dấu chấm trước mỗi mục */
-  padding: 0; /* Bỏ khoảng cách bên trong */
-  display: flex; /* Hiển thị các mục trên cùng một dòng */
-  animation: marquee 10s linear infinite; /* Thêm hiệu ứng chuyển động */
-}
+  list-style: none;
+  padding: 0; 
+  display: flex; 
 
-.test-site-container {
-  list-style: none; /* Bỏ dấu chấm trước mỗi mục */
-  padding: 0; /* Bỏ khoảng cách bên trong */
-  display: flex; /* Hiển thị các mục trên cùng một dòng */
-  animation: marquee 15s linear infinite; /* Thêm hiệu ứng chuyển động */
 }
 
 .test-site-container a {
-  color: black; /* Đặt màu chữ thành đen */
-  text-decoration: none; /* Bỏ gạch chân */
+  color: black; 
+  text-decoration: none; 
 }
 
 .test-site-container li {
-  margin: 0 20px; /* Khoảng cách giữa các mục */
-}
-/* Hiệu ứng chuyển động từ phải sang trái */
-@keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  margin: 0 20px; 
 }
 
-#section_1700118574 {
-  max-height: 200px; /* Giới hạn chiều cao tối đa */
-  background-color: rgb(248, 249, 255); /* Màu nền */
-}
-.marquee {
-  height: 55px; /* Chiều cao của marquee */
-}
 .price-card {
   box-shadow: 0 1px 16px rgb(0 0 0 / 12%);
   border-radius: 15px;
@@ -131,3 +89,4 @@ height: 100vh;
   list-style-type: none;
   margin: 15px 0px 0px 0px !important;
 }
+
