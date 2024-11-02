@@ -1,4 +1,3 @@
-
 .header-main {
   height: 64px;
 }
@@ -11,15 +10,40 @@
   width: 100px;
 }
 
-
 .sidebar-sub.expends {
   width: 270px;
+  min-width: 270px;
+  max-width: 270px;
+  transition: width 0.3s ease;
 }
+
 
 .sidebar-sub.collaps {
   width: 100px;
+  min-width: 100px;
+  max-width: 100px;
+  transition: width 0.3s ease;
 }
 
+.content_sub.collaps {
+  width: 100px;
+  padding: 0px 10px;
+  flex-shrink: 0;
+}
+
+.content_sub.expends {
+  width: 270px;
+  flex-shrink: 0;
+}
+.content-wrapper {
+  flex: 1;
+  overflow-y: auto;
+}
+.w-auto {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden; /* Ngăn nội dung trong Outlet tràn ra */
+}
 .icon-sub {
   width: 20px;
   height: 20px;
@@ -28,7 +52,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .icon-sub img {
@@ -40,29 +63,15 @@
   height: auto;
 }
 
-/* 
-.logo-sidebar-short,
-.logo_sidebar-long {
-  transition: all 0.4s ease-in;
-} */
-
-.content-sidebar {
-  width: 270px;
-}
 
 .sidebar_main {
-  border-right: 1px solid #919EAB1F;
+  border-right: 1px solid #919eab1f;
   height: 100vh;
-}
-
-.sub_content {
-  background-color: #f5f6fa;
 }
 
 .sidebar_header,
 .content_header {
   height: 64px;
-
 }
 
 .content-header {
@@ -76,21 +85,19 @@
   background-color: transparent;
 }
 
-*/ .custom-li {
+.custom-li {
   height: 50px;
   line-height: 50px;
   position: relative;
   transition: all ease-in-out 0.2s;
-  padding-left: 30px;
-
+  padding-left: 25px;
 }
 
 .custom-li.active {
-  background-color: rgb(32, 85, 153);
-  color: #f5f6fa;
+  background-color: #24a1de14;
+  color: #24a1de;
   transition: all ease-in-out 0s;
 }
-
 
 .custom-li span {
   transition: opacity 0.1s ease;
@@ -107,14 +114,13 @@
 }
 
 .custom-li:hover {
-  background-color: rgba(162, 202, 255, 0.712);
+  background-color: #24a1de14;
   cursor: pointer;
-  color: #0d6efd;
+  color: #24a1de;
 }
 
 .menu_user {
   background-color: white;
-
 }
 
 .menu_user li {
@@ -127,20 +133,8 @@
   background-color: rgba(162, 202, 255, 0.712);
 }
 
-@media (max-width: 425px) {
-  .sub_siderbar.collapsed {
-    width: 0px;
-  }
+@media (max-width: 767.98px) {
 
-  .sub_siderbar.expanded {
-    width: 230px;
-  }
-
-  .sidebar_main.collapsed {
-    width: 0px;
-  }
-
-  .sidebar_main.expanded {
-    width: 230px;
-  }
+ 
 }
+

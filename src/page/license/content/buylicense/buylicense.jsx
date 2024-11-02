@@ -19,7 +19,7 @@ export function BuyLicensePage() {
   const totalPrice = selectedOption.price + (isModuleChecked ? modulePrice : 0);
 
   return (
-    <div className="container pt-5">
+    <div className="container pt-5 w-100 overflow-hidden">
       <h3 className="mb-4" style={{fontWeight: '600'}}>Mua license</h3>
       <div className="p-4 bg-white border rounded shadow-sm">
         <h4 className="mb-4 title">Thông tin phần mềm</h4>
