@@ -28,7 +28,7 @@ export function SupportPage() {
           </ul>
         </div>
         <a href="#">
-          <button className="btn border btn-outline-custom mt-4 ">
+          <button className="btn mt-4 " style={{backgroundColor:'blue',color:'white' , border:'1px solid gray'}}>
             <img src={iconA} alt="" width={"25px"} /> Liên hệ Page
           </button>
         </a>

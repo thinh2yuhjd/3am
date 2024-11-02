@@ -17,7 +17,6 @@
   transition: width 0.3s ease;
 }
 
-
 .sidebar-sub.collaps {
   width: 100px;
   min-width: 100px;
@@ -63,7 +62,6 @@
   height: auto;
 }
 
-
 .sidebar_main {
   border-right: 1px solid #919eab1f;
   height: 100vh;
@@ -84,7 +82,9 @@
 .button_menubar {
   background-color: transparent;
 }
-
+.btn-mobile {
+  display: none;
+}
 .custom-li {
   height: 50px;
   line-height: 50px;
@@ -134,7 +134,37 @@
 }
 
 @media (max-width: 767.98px) {
+  .content_sub {
+    position: fixed;
+    top: 0;
+    left: -270px; /* Đặt content_sub ngoài màn hình bên trái */
+    width: 270px;
+    height: 100vh;
+    background-color: #ffffff;
+    transition: left 0.3s ease;
+    z-index: 1001; /* Đảm bảo content_sub nằm trên các phần tử khác */
+  
+  }
 
- 
+  .header-sidebar {
+    position: fixed;
+    top: 0;
+    left: -400px;
+    width: 350px;
+  }
+  /* Khi mở sidebar, trượt content_sub vào từ trái */
+
+  .content_sub.mobile-open {
+    left: 0;
+  }
+  /* Overlay làm mờ content */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Làm mờ */
+    z-index: 1000;
+  }
 }
-

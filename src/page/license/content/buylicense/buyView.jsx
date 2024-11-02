@@ -17,7 +17,7 @@ export function BuyView() {
             {isNextPage ? (
                 <div className="">
                     <BuyLicensePage />
-                    <div className="container">
+                    <div className="container mb-4">
                         <div className="mt-4 text-end">
                             <button onClick={handleNextPage} className="custom-button rounded border-0" >Tiếp tục</button>
                         </div>

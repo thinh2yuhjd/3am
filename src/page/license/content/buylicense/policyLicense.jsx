@@ -90,7 +90,7 @@ export function PolicyLicensePage({ onBack }) {
             <button
               disabled={!isChecked}
               onClick={handlePayment}
-              className={`${isChecked ? 'custom-button rounded border-0' : 'custom-button-1 rounded border-0'}`}
+              className={`${isChecked ? 'custom-button rounded border-0' : 'custom-button-1 rounded border-0'} mb-4`}
             >
               Thanh toán
             </button>

@@ -15,12 +15,16 @@ import iconInfor from "../../img/icon/information-button.png";
 import iconLogout from "../../img/icon/logout.png";
 import iconSidebar from "../../img/icon/down-arrow-sidebar.png";
 import iconUpSidebar from "../../img/icon/up-arrow-sidebar.png";
+import iconOpen from "../../img/icon/menus.png";
+import iconClose from "../../img/icon/close.png";
 import { Link } from "react-router-dom";
 
 export function LicenseManagement() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isOpenmenu, setisOpenmenu] = useState(false);
   const [isopenSidebar, setisopenSidebar] = useState(false);
+  const [isOpenSiderbarMB, setisOpenSidebarMB] = useState(false);
+
   const menuRef = useRef(null);
 
   const navigate = useNavigate();
@@ -54,19 +58,38 @@ export function LicenseManagement() {
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setisOpenmenu(false);
+      setisOpenSidebarMB(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("pointerdown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("pointerdown", handleClickOutside);
     };
   }, []);
 
+  const handleOpenSidebarMB = () => {
+    setisOpenSidebarMB(!isOpenSiderbarMB);
+  };
+  const handleCloseSidebarMB = () => {
+    setisOpenSidebarMB(false);
+  };
   return (
     <div className="">
-      <div className="header-main d-flex">
+      <div className="header-main d-flex ">
+        <div className="btn-mobile d-block d-md-none d-flex align-items-center">
+          <button
+            className="w-100 border-0 bg-transparent"
+            onClick={handleOpenSidebarMB}
+          >
+            <img src={iconOpen} alt="" />
+          </button>
+        </div>
+
+        {/* <div className="logo_mb border m-auto d-block d-md-none">
+          <img src={iconLogo} alt="" />
+        </div> */}
         <div
           className={`header-sidebar ${
             isopenSidebar ? "collaps" : "expends"
@@ -120,7 +143,7 @@ export function LicenseManagement() {
             ref={menuRef}
           >
             <button
-              className="border-0 rounded-circle mt-1 me-2"
+              className="border-0 rounded-circle mt-2 me-2"
               onClick={toggleMenuInfo}
               style={{ width: "50px", lineHeight: "50px" }}
             >
@@ -153,9 +176,17 @@ export function LicenseManagement() {
         <div
           className={`border-end content_sub ${
             isopenSidebar ? "collaps" : "expends"
-          }`}
+          } ${isOpenSiderbarMB ? "mobile-open" : ""}`}
         >
           <div>
+            <div className="text-end d-block d-md-none">
+              <button
+                className="mobile-menu-button border-0 bg-transparent"
+                onClick={handleCloseSidebarMB}
+              >
+                <img src={iconClose} alt="" width="16px" />
+              </button>
+            </div>
             <ul className="list-unstyled custom-ul">
               {menuItems.map((item, index) => (
                 <Link to={item.path} key={index}>
@@ -175,7 +206,10 @@ export function LicenseManagement() {
             </ul>
           </div>
         </div>
-        <div className="h-100 w-auto content-wrapper" style={{ backgroundColor: "#F4F6F8" }}>
+        <div
+          className="h-100 w-auto content-wrapper"
+          style={{ backgroundColor: "#F4F6F8" }}
+        >
           <Outlet />
         </div>
       </div>
