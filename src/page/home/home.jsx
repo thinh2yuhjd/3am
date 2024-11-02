@@ -51,7 +51,7 @@ const Home = () => {
             className="border rounded-pill"
             style={{ width: "100%", backgroundColor: "#FFFFFF"}}
           >
-            <div className="row" style={{ height: "64px" }}>
+            <div className="row " style={{ height: "64px" }}>
               <div className="col-md-3 my-auto text-start">
                 <img src={logo} alt="Logo" className="ps-3" />
               </div>
@@ -111,8 +111,8 @@ const Home = () => {
                   <img src={search_icon} alt="search" className="pe-3" />
                 </div>
                 <button
-                  className="rounded-pill"
-                  style={{ width: "100px", backgroundColor: "#1C252E" }}
+                  className="button"
+                  style={{ width: "115px", backgroundColor: "#1C252E" }}
                   onClick={onhangdleLogin}
                 >
                   <a style={{ color: "white" }}>Đăng ký</a>
@@ -148,9 +148,9 @@ const Home = () => {
                 trên một máy tính giúp bảo vệ danh tính, vận hành an toàn và
                 hiệu quả cho các hoạt động tiếp thị và quản lý tài khoản.
               </p>
-              <div className="d-flex">
+              <div className="">
                 <button
-                  className="rounded-pill d-flex align-items-center justify-content-evenly p-2"
+                  className="button d-flex align-items-center justify-content-evenly p-2"
                   style={{ width: "250px", backgroundColor: "#24A1DE" }}
                 >
                   <span className="icon "></span>
@@ -164,6 +164,7 @@ const Home = () => {
                 </button>
               </div>
             </div>
+            <div className="col-md-9"></div>
           </div>
         </div>
       </div>
