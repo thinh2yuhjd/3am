@@ -159,7 +159,7 @@ export function InformationPage() {
                     </div>
                 </div>
             </div>
-            <div className="container text-end ">
+            <div className="container text-end mb-4">
                 <button className="custom-button rounded border-0 me-3" type='submit'>Cập nhật</button>
                 <Link to="/license/dashboard">
                     <button className="custom-button rounded border-0">Hủy bỏ</button>
