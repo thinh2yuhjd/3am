@@ -55,6 +55,7 @@ export function LicenseManagement() {
     setisOpenmenu(!isOpenmenu);
   };
 
+  //clickOutsite
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setisOpenmenu(false);
