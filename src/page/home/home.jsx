@@ -13,6 +13,8 @@ import Video from "./video";
 import "./index.css";
 import background from "../../img/bg.png";
 import button_search from "../../img/icon/Button.png";
+import button_menu from "../../img/icon/menu.png";
+
 import { useNavigate, Link } from "react-router-dom";
 
 const Home = () => {
@@ -54,51 +56,117 @@ const Home = () => {
     <div className="" style={{ backgroundColor: "#F4F6F8" }}>
       <div className="am-header">
         <img src={background} width={"100%"} />
+        <div className="am-hd-main position-absolute w-100">
 
-        <div className=" am-header-search">
-          <div className="row position-relative border d-flex d-flex justify-content-between">
-            <div
-              className="d-block d-md-none col-md-2 border"
-              onClick={toggleDropdown}
-            >
-              <button>button</button>
-            </div>
 
-            <div className="col-md-2 border" style={{ color: "white" }}>
-              logo
-            </div>
+          <div className="am-header-search container">
+            <div className="row position-relative d-flex justify-content-between align-items-center w-100">
 
-            <div
-              className={`border col-md-4 position-absolute custom-menu-az ${
-                open ? "momenu" : "dongmenu"
-              }`}
-            >
-              <ul className="border h-100">
-                <li style={{listStyle:'none'}}>
-                  <a className="" href="">home</a>
-                </li>
-                <li>
-                  <a href="">Tai nguyen</a>
-                </li>
-                <li>
-                  <a href="">Tai lieu</a>
-                </li>
-                <li>
-                  <a href="">Abc</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="d-flex border col-md-4">
-              <div className="">
-                <button>search</button>
+              <div className="col-md-2 d-none d-md-block text-start" style={{ height: '40px' }}>
+                <img src={logo} alt="Logo" className="h-100" />
               </div>
-              <div className="">
-                <button>Đăng ký</button>
+
+              <div className="col-md-6 d-none d-md-block">
+                <ul className="menu d-flex justify-content-around align-items-center">
+                  <li className="" style={{ width: '120px' }}><a href="" className="custom-a-pc">Trang chủ</a></li>
+                  <li className="" style={{ width: '120px' }}><a href="" className="custom-a-pc">Bảng giá</a></li>
+                  <li className="" style={{ width: '120px' }}><a href="" className="custom-a-pc">Tài liệu</a></li>
+                  <li style={{ width: '160px' }}>
+                    <a className="custom-a-pc nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdownMenuLink"
+                      role="button"
+                      onClick={toggleDropdown}>Mua phần mềm</a>
+                    {open && (
+                      <ul className="dropdown-menu">
+                        <li>
+                          <a className="dropdown-item" href="#">Mua qua facebook</a>
+                        </li>
+                        <li className="dropdown-item">
+                          <a href="" className="text-decoration-none">Mua online</a>
+                        </li>
+                      </ul>
+                    )}
+                  </li>
+                </ul>
+              </div>
+
+              <div className="col-md-3 col-lg-2 d-none d-md-flex justify-content-between align-items-center">
+                <div onClick={handleOpen}>
+                  <img src={search_icon} alt="search" className="pe-3" />
+                </div>
+                <button
+                  className="button"
+                  style={{ width: "115px", backgroundColor: "#1C252E" }}
+                  onClick={onhangdleLogin}
+                >
+                  <span style={{ color: "white" }}>Đăng ký</span>
+                </button>
+              </div>
+
+              {isOpenSearch && (
+                <div className="search-popup-overlay" onClick={handleOpen}>
+                  <div className="search-popup-content font-border" onClick={(e) => e.stopPropagation()}>
+                    <input type="text" placeholder="Tìm kiếm..." className="form-controls outline-none" style={{ outline: 'none' }} />
+                    <img src={button_search} alt="" />
+                  </div>
+                </div>
+              )}
+
+              <div className="d-block d-md-none col-1 text-start">
+                <button className="border-0" style={{ backgroundColor: 'transparent' }} onClick={toggleDropdown}>
+                  <img src={button_menu} alt="" />
+                </button>
+              </div>
+
+              <div className="col-md-8 col-sm-11 d-block d-md-none text-center ">
+                <img src={logo} alt="Logo" className="ps-3" />
+              </div>
+
+              <div className={`border custom-menu-az position-absolute ${open ? "show" : "hide"}`}>
+                <div className="text-end mt-1 me-1">
+                  <button className="close-menu border-0" style={{ backgroundColor: 'white' }} onClick={toggleDropdown}>✖</button>
+                </div>
+                <div className="d-block d-md-none text-end mt-4 mb-2">
+                  <div className="d-flex justify-content-center" style={{ width: '', height: '35px' }}>
+                    <input type="text" name="" id="" />
+                    <img className="border" src={search_icon} alt="" />
+                  </div>
+
+                </div>
+                <ul className="h-100">
+                  <li className="text-start ps-3 border-bottom" style={{ listStyle: 'none' }}>
+                    <a href="">Trang chủ</a>
+                  </li>
+
+                  <li className="text-start ps-3 border-bottom" >
+                    <a href="">Bảng giá</a>
+                  </li>
+                  <li className="text-start ps-3 border-bottom" >
+                    <a href="">Tài liệu</a>
+                  </li>
+                  <li className="text-start ps-3 border-bottom" >
+                    <a href="">Mua phần mềm</a>
+                  </li>
+                  <div className="d-flex justify-content-center mt-4">
+                    <button
+                      className="button"
+                      style={{ width: "115px", height: '45px', backgroundColor: "#1C252E" }}
+                      onClick={onhangdleLogin}
+                    >
+                      Đăng Ký
+                    </button>
+                  </div>
+
+                </ul>
+
               </div>
             </div>
           </div>
+
         </div>
+
+
       </div>
 
       <div className="my-5 pb-1">
@@ -256,8 +324,8 @@ const Home = () => {
           <div className="row mt-5">
             {/* Gói Solo */}
             <div className="col-md-4 col-sm-12">
-              <div className="col-inner">
-                <div className="price-card">
+              <div className="col-inner" >
+                <div className="price-card custom-hover-card">
                   <h3 className="uppercase">
                     <img src={iconT} alt="" className="me-3" />
                     Basic Solo
@@ -299,8 +367,8 @@ const Home = () => {
                     <div className="w-100 text-center ">
                       <a
                         href="#"
-                        className="text-decoration-none"
-                        style={{ color: "gray" }}
+                        className="text-decoration-none a-learn-more"
+
                       >
                         Learn More
                       </a>
@@ -313,7 +381,7 @@ const Home = () => {
             {/* Gói Team 5PC */}
             <div className="col-md-4 col-sm-12">
               <div className="col-inner">
-                <div className="price-card">
+                <div className="price-card custom-hover-card">
                   <h3 className="uppercase">
                     <img src={iconT} alt="" className="me-3" />
                     Basic 5
@@ -355,8 +423,7 @@ const Home = () => {
                     <div className="w-100 text-center ">
                       <a
                         href="#"
-                        className="text-decoration-none"
-                        style={{ color: "gray" }}
+                        className="text-decoration-none a-learn-more"
                       >
                         Learn More
                       </a>
@@ -369,7 +436,7 @@ const Home = () => {
             {/* Gói Team 10PC */}
             <div className="col-md-4 col-sm-12">
               <div className="col-inner">
-                <div className="price-card">
+                <div className="price-card custom-hover-card">
                   <h3 className="uppercase">
                     <img src={iconT} alt="" className="me-3" />
                     Basic 10
@@ -410,9 +477,9 @@ const Home = () => {
                     </button>
                     <div className="w-100 text-center ">
                       <a
-                        href="#"
-                        className="text-decoration-none"
-                        style={{ color: "gray" }}
+                        href=""
+                        className="text-decoration-none a-learn-more"
+                        
                       >
                         Learn More
                       </a>

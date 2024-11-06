@@ -9,7 +9,7 @@ export function DashboardPage() {
   return (
     <div className='container pt-5'>
       <h3 style={{ fontWeight: '600' }}>Bảng điều khiển</h3>
-      <div className="table-responsive mt-4">
+      <div className="table-responsive mt-4 mb-4">
         <table className="table table-bordered text-center">
           <thead style={{backgroundColor:'#eeeeee'}}>
             <tr>

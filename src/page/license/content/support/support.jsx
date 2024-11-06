@@ -28,7 +28,7 @@ export function SupportPage() {
           </ul>
         </div>
         <a href="#">
-          <button className="btn mt-4 " style={{backgroundColor:'blue',color:'white' , border:'1px solid gray'}}>
+          <button className="btn mt-4 " style={{backgroundColor:'#24A1DE',color:'white' , border:'1px solid #d5d5d5'}}>
             <img src={iconA} alt="" width={"25px"} /> Liên hệ Page
           </button>
         </a>

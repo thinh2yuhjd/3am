@@ -56,19 +56,19 @@ export function LicenseManagement() {
   };
 
   //clickOutsite
-  const handleClickOutside = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setisOpenmenu(false);
-      setisOpenSidebarMB(false);
-    }
-  };
+  // const handleClickOutside = (event) => {
+  //   if (menuRef.current && !menuRef.current.contains(event.target)) {
+  //     setisOpenmenu(false);
+  //     setisOpenSidebarMB(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    document.addEventListener("pointerdown", handleClickOutside);
-    return () => {
-      document.removeEventListener("pointerdown", handleClickOutside);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener("pointerdown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("pointerdown", handleClickOutside);
+  //   };
+  // }, []);
 
   const handleOpenSidebarMB = () => {
     setisOpenSidebarMB(!isOpenSiderbarMB);
@@ -92,14 +92,12 @@ export function LicenseManagement() {
           <img src={iconLogo} alt="" />
         </div> */}
         <div
-          className={`header-sidebar ${
-            isopenSidebar ? "collaps" : "expends"
-          } d-flex position-relative`}
+          className={`header-sidebar ${isopenSidebar ? "collaps" : "expends"
+            } d-flex position-relative`}
         >
           <div
-            className={`border-end sidebar-sub ${
-              isopenSidebar ? "collaps" : "expends"
-            } d-flex justify-content-center align-items-center`}
+            className={`border-end sidebar-sub ${isopenSidebar ? "collaps" : "expends"
+              } d-flex justify-content-center align-items-center`}
           >
             {isopenSidebar ? (
               <div className="logo-sidebar-short">
@@ -175,12 +173,11 @@ export function LicenseManagement() {
 
       <div className="content_main d-flex">
         <div
-          className={`border-end content_sub ${
-            isopenSidebar ? "collaps" : "expends"
-          } ${isOpenSiderbarMB ? "mobile-open" : ""}`}
+          className={`border-end content_sub ${isopenSidebar ? "collaps" : "expends"
+            } ${isOpenSiderbarMB ? "mobile-open" : ""}`}
         >
           <div>
-            <div className="text-end d-block d-md-none">
+            <div className="text-end d-block d-md-none my-2">
               <button
                 className="mobile-menu-button border-0 bg-transparent"
                 onClick={handleCloseSidebarMB}
@@ -190,11 +187,10 @@ export function LicenseManagement() {
             </div>
             <ul className="list-unstyled custom-ul">
               {menuItems.map((item, index) => (
-                <Link to={item.path} key={index}>
+                <Link to={item.path} key={index} style={{color:'#4b5563'}}>
                   <li
-                    className={`custom-li ${
-                      activeIndex === index ? "active" : ""
-                    }`}
+                    className={`custom-li ${activeIndex === index ? "active" : ""
+                      }`}
                     onClick={() => setActiveIndex(index)}
                   >
                     <img src={item.icon} alt="" />

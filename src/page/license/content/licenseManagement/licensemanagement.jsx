@@ -35,7 +35,7 @@ export function LicenseManagementPage() {
             hoặc <b>3am.net</b>
           </div>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 mb-4">
           <div className="col-md-12">
             <div className="table-responsive mt-4">
               <table className="table table-bordered text-center">
