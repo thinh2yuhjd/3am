@@ -7,10 +7,60 @@ import iconName from '../../img/icon/card.png';
 import iconFacebook from '../../img/icon/facebook.png';
 import { Link } from 'react-router-dom';
 import { Login } from '../login/login';
+import axios from 'axios';
 export function Register() {
 
-    const [isChecked, setisChecked] = useState(false);
+    const [FullName, setFullName] = useState('')
+    const [Password, setPassword] = useState('')
+    const [isConfirmPassword, setisConfirmPassword] = useState('')
+    const [Email, setEmail] = useState('')
+    const [AccountFacebook, setAccountFacebook] = useState('')
+    const [LinkFacebook, setLinkFacebook] = useState('')
 
+    const [isMessage, setisMessage] = useState('')
+
+    const validateForm = () => {
+        if (!FullName || !Email || !Password || !AccountFacebook || !LinkFacebook) {
+            setisMessage('Vui lòng điền tất cả các trường.');
+            return false;
+        }
+        if (!/\S+@\S+\.\S+/.test(Email)) {
+            setisMessage('Email không hợp lệ.');
+            return false;
+        }
+        if (Password.length < 6) {
+            setisMessage('Mật khẩu phải có ít nhất 6 ký tự.');
+            return false;
+        }
+        if (Password !== isConfirmPassword) {
+            setisMessage('Mật khẩu không khớp.');
+            return false;
+        }
+        return true;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!validateForm()) return;
+        try {
+            const reponse = await axios
+                .post("http://192.168.1.36:8086/api/Account/Register", {
+                    FullName,
+                    Password,
+                    Email,
+                    AccountFacebook,
+                    LinkFacebook
+                })
+            setisMessage(reponse.data.message)
+            navigator("/login")
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+
+    const [isChecked, setisChecked] = useState(false);
     const handleChecked = (event) => {
         setisChecked(event.target.checked)
     }
@@ -32,13 +82,18 @@ export function Register() {
                         <img src={logo} alt="Logo" className="mb-3" />
                         <h4 className="mb-3 fs-36">Đăng ký</h4>
                         <p className="mb-3 fs-18 text-secondary-light">Đăng ký tài khoản! Vui lòng nhập thông tin</p>
-                        <form>
+
+                        {isMessage && <p style={{ color: 'red' }}>{isMessage}</p>}
+
+                        <form onSubmit={handleSubmit}>
                             <div className="border mb-3 h-56 ps-2 d-flex align-items-center rounded-3">
                                 <img className="me-2" src={iconUser} alt="Tên đăng nhập" />
                                 <input
                                     type="text"
                                     className="border-0 account w-100"
                                     placeholder="Tên đăng nhập"
+                                    value={Email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     required
                                 />
                             </div>
@@ -48,6 +103,8 @@ export function Register() {
                                     type="password"
                                     className="border-0 account w-100"
                                     placeholder="Mật khẩu"
+                                    value={Password}
+                                    onChange={(e) => setPassword(e.target.value)}
                                     required
                                 />
                             </div>
@@ -57,6 +114,8 @@ export function Register() {
                                     type="password"
                                     className="border-0 account w-100"
                                     placeholder="Nhập lại mật khẩu"
+                                    value={isConfirmPassword}
+                                    onChange={(e) => setisConfirmPassword(e.target.value)}
                                     required
                                 />
                             </div>
@@ -66,6 +125,8 @@ export function Register() {
                                     type="text"
                                     className="border-0 account w-100"
                                     placeholder="Họ tên"
+                                    value={FullName}
+                                    onChange={(e) => setFullName(e.target.value)}
                                     required
                                 />
                             </div>
@@ -75,6 +136,8 @@ export function Register() {
                                     type="text"
                                     className="border-0 account w-100"
                                     placeholder="Tên tài khoản facebook"
+                                    value={AccountFacebook}
+                                    onChange={(e) => setAccountFacebook(e.target.value)}
                                     required
                                 />
                             </div>
@@ -84,6 +147,8 @@ export function Register() {
                                     type="text"
                                     className="border-0 account w-100"
                                     placeholder="Facebook URL"
+                                    value={LinkFacebook}
+                                    onChange={(e) => setLinkFacebook(e.target.value)}
                                     required
                                 />
                             </div>
@@ -103,10 +168,7 @@ export function Register() {
                                 </Link>
                             </p>
                         </form>
-                        {/* <GoogleLogin
-                        onSuccess={handleLoginSuccess}
-                        onError={handleLoginError}
-                    /> */}
+
                     </div>
                 </div>
             </div>

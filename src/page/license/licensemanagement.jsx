@@ -76,6 +76,24 @@ export function LicenseManagement() {
   const handleCloseSidebarMB = () => {
     setisOpenSidebarMB(false);
   };
+
+    
+
+  useEffect(() => {
+    // Kiểm tra xem người dùng đã đăng nhập chưa
+    const userInfo = localStorage.getItem('userInfo');
+    if (!userInfo) {
+      navigate("/login");
+    }
+  }, [navigate]);
+  
+  const handleLogout = async () => {
+    localStorage.removeItem('userInfo'); // Xóa thông tin người dùng
+    await new Promise(resolve => setTimeout(resolve, 100)); // Đợi một chút (100ms)
+    navigate('/login'); // Chuyển hướng đến trang đăng nhập
+};
+
+  
   return (
     <div className="">
       <div className="header-main d-flex ">
@@ -159,7 +177,7 @@ export function LicenseManagement() {
                     Thông tin người dùng
                   </li>
                 </Link>
-                <Link to="/login" className="text-decoration-none">
+                <Link className="text-decoration-none" onClick={handleLogout}>
                   <li className="py-2 ps-3">
                     <img src={iconLogout} alt="" className="pe-2" />
                     Đăng xuất
