@@ -1,23 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import imgLeft from '../../img/img-left-page-login.png';
 import logo from '../../img/logo.png';
 import iconUser from '../../img/icon/user.png';
 import iconPass from '../../img/icon/padlock.png';
 import iconName from '../../img/icon/card.png';
 import iconFacebook from '../../img/icon/facebook.png';
-import { Link } from 'react-router-dom';
-import { Login } from '../login/login';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 export function Register() {
-
-    const [FullName, setFullName] = useState('')
-    const [Password, setPassword] = useState('')
-    const [isConfirmPassword, setisConfirmPassword] = useState('')
-    const [Email, setEmail] = useState('')
-    const [AccountFacebook, setAccountFacebook] = useState('')
-    const [LinkFacebook, setLinkFacebook] = useState('')
-
-    const [isMessage, setisMessage] = useState('')
+    const [FullName, setFullName] = useState('');
+    const [Password, setPassword] = useState('');
+    const [isConfirmPassword, setisConfirmPassword] = useState('');
+    const [Email, setEmail] = useState('');
+    const [AccountFacebook, setAccountFacebook] = useState('');
+    const [LinkFacebook, setLinkFacebook] = useState('');
+    const [isMessage, setisMessage] = useState('');
+    const [isChecked, setisChecked] = useState(false);
+    const navigate = useNavigate();
 
     const validateForm = () => {
         if (!FullName || !Email || !Password || !AccountFacebook || !LinkFacebook) {
@@ -36,6 +36,8 @@ export function Register() {
             setisMessage('Mật khẩu không khớp.');
             return false;
         }
+        setisMessage('Đăng ký thành công');
+        navigate("/login");
         return true;
     };
 
@@ -43,27 +45,27 @@ export function Register() {
         e.preventDefault();
         if (!validateForm()) return;
         try {
-            const reponse = await axios
-                .post("http://192.168.1.36:8086/api/Account/Register", {
-                    FullName,
-                    Password,
-                    Email,
-                    AccountFacebook,
-                    LinkFacebook
-                })
-            setisMessage(reponse.data.message)
-            navigator("/login")
+            const response = await axios.post("http://192.168.1.36:8086/api/Account/Register", {
+                FullName,
+                Password,
+                Email,
+                AccountFacebook,
+                LinkFacebook
+            });
+            setisMessage(response.data.message);
+            if (response.data.success) {
+                // navigate("/login");
+                setisMessage(response.data.message);
+            }
+        } catch (error) {
+            console.log(error);
+            setisMessage('Đã xảy ra lỗi. Vui lòng thử lại.');
         }
-        catch (e) {
-            console.log(e);
-        }
-    }
+    };
 
-
-    const [isChecked, setisChecked] = useState(false);
     const handleChecked = (event) => {
-        setisChecked(event.target.checked)
-    }
+        setisChecked(event.target.checked);
+    };
 
     return (
         <div className='container-fluid vh-100 overflow-hidden'>
@@ -87,11 +89,11 @@ export function Register() {
 
                         <form onSubmit={handleSubmit}>
                             <div className="border mb-3 h-56 ps-2 d-flex align-items-center rounded-3">
-                                <img className="me-2" src={iconUser} alt="Tên đăng nhập" />
+                                <img className="me-2" src={iconUser} alt="Email" />
                                 <input
                                     type="text"
                                     className="border-0 account w-100"
-                                    placeholder="Tên đăng nhập"
+                                    placeholder="Email"
                                     value={Email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
@@ -135,7 +137,7 @@ export function Register() {
                                 <input
                                     type="text"
                                     className="border-0 account w-100"
-                                    placeholder="Tên tài khoản facebook"
+                                    placeholder="Tên tài khoản Facebook"
                                     value={AccountFacebook}
                                     onChange={(e) => setAccountFacebook(e.target.value)}
                                     required
@@ -157,21 +159,18 @@ export function Register() {
                                 <label htmlFor="check" className="ms-2">Việc tạo tài khoản đồng nghĩa với việc bạn đồng ý với các Điều khoản & Điều kiện và Chính sách quyền riêng tư của chúng tôi</label>
                             </div>
 
-                            <button disabled={!isChecked} type="submit" className={`${isChecked ? 'btn btn-primary w-100' : 'btn btn-light w-100'} `}>Đăng ký</button>
+                            <button disabled={!isChecked} type="submit" className={`${isChecked ? 'btn btn-primary w-100' : 'btn btn-light w-100'}`}>Đăng ký</button>
 
                             <p className="mt-3">
                                 Bạn đã có tài khoản?
                                 <Link to="/login">
-                                    <span className='ps-1'>
-                                        Đăng nhập
-                                    </span>
+                                    <span className='ps-1'>Đăng nhập</span>
                                 </Link>
                             </p>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
