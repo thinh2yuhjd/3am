@@ -193,7 +193,7 @@
 }
 
 .custom-menu-az.show {
-  left: 0px;
+  left: -20px;
 }
 
 .custom-menu-az.hide {
@@ -335,7 +335,7 @@
 
   .am-header-search {
     border-radius: 9999px;
-   
+
   }
 }
 
