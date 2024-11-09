@@ -126,7 +126,7 @@ export function LicenseManagement() {
                 className="logo_sidebar-long"
                 style={{ width: "240px", height: "auto" }}
               >
-                <img src={iconLogoLong} alt="" className="w-100 h-100" />
+                <img src={iconLogoLong} alt="" className="w-100 h-100" style={{objectFit:'cover'}} />
               </div>
             )}
           </div>

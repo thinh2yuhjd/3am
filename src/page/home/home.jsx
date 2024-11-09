@@ -12,6 +12,8 @@ import why3am from "../../img/why3am.png";
 import Video from "./video";
 import "./index.css";
 import background from "../../img/bg.png";
+import backgroundMb from "../../img/bg-mobile.png";
+import background_right from "../../img/bg-demo-right.png";
 import button_search from "../../img/icon/Button.png";
 import button_menu from "../../img/icon/menu.png";
 
@@ -19,16 +21,14 @@ import { useNavigate, Link } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [isOpenSearch, setIsOpenSearch] = useState(false);
+  //menu
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
   const onhangdleLogin = () => {
     navigate("/login");
   };
-  const [isOpenSearch, setIsOpenSearch] = useState(false);
-
-  //menu
-  const [open, setOpen] = useState(false);
-  ///
-
-  const dropdownRef = useRef(null);
 
   const handleOpen = () => {
     setIsOpenSearch((prev) => !prev);
@@ -52,14 +52,17 @@ const Home = () => {
     };
   }, []);
 
+
+
+
   return (
     <div className="" style={{ backgroundColor: "#F4F6F8" }}>
-      <div className="am-header">
-        <img src={background} width={"100%"} />
-        <div className="am-hd-main position-absolute w-100">
+      <div className="am-header " >
+        <img className=""  src={background} width="100%" style={{minHeight:'100vh'}} alt="background" />
+        <div className="am-hd-main  position-absolute w-100">
 
 
-          <div className="am-header-search container">
+          <div className="am-header-search container d-flex justify-content-center">
             <div className="row position-relative d-flex justify-content-between align-items-center w-100">
 
               <div className="col-md-2 d-none d-md-block text-start" style={{ height: '40px' }}>
@@ -119,8 +122,8 @@ const Home = () => {
                 </button>
               </div>
 
-              <div className="col-md-8 col-sm-11 d-block d-md-none text-center ">
-                <img src={logo} alt="Logo" className="ps-3" />
+              <div className="col-md-8 col-sm-11 d-block d-md-none text-center">
+                <img src={logo} alt="Logo" className="ps-3 ps-sm-0 pe-sm-5 custom-img-log-mobile" />
               </div>
 
               <div className={`border custom-menu-az position-absolute ${open ? "show" : "hide"}`}>
@@ -163,7 +166,47 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <div className="container-fluid am-content">
+            <div className="row custom-text-img-main">
+              <div className="col-md-2 custom-col-2 ">
+              </div>
+              <div className="col-md-3 custom-col-3  custom-text" style={{ color: 'white' }}>
+                <div className="">
 
+                  <h1 className="custom-title-h1">
+                    Web3 Automation Multiple
+                  </h1>
+                  <div className="my-3">
+                    <span className="custom-span">
+                      Giải pháp trình duyệt anti-detect và quản lý nhiều tài khoản
+                      trên một máy tính giúp bảo vệ danh tính, vận hành an toàn và
+                      hiệu quả cho các hoạt động tiếp thị và quản lý tài khoản.
+                    </span>
+                  </div>
+                  <div className="mt-4">
+                    <button
+                      className="button d-none d-lg-flex align-items-center justify-content-evenly p-2 custom-button-dowload"
+
+                    >
+                      <span className="icon"></span>
+                      <a
+                        href="#"
+                        className="text-decoration-none"
+                        style={{ color: "white" }}
+                      >
+                        Tải xuống cho Windows
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-7  ">
+                <img className="w-100 h-100" src={background_right} alt="" />
+              </div>
+            </div>
+
+          </div>
         </div>
 
 
@@ -479,7 +522,7 @@ const Home = () => {
                       <a
                         href=""
                         className="text-decoration-none a-learn-more"
-                        
+
                       >
                         Learn More
                       </a>
